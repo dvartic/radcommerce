@@ -1,0 +1,116 @@
+<header class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1920px]">
+  <div class="w-full grid grid-cols-3 items-center gap-8 border-b border-zinc-200 py-3 text-sm">
+    <%!-- LEFT BLOCK --%>
+    <div class="w-full">
+      <div class="hidden md:flex flex-row gap-4 md:gap-6 lg:gap-12 items-center">
+        <.link navigate="/">
+          <img src={~p"/images/logo-dark.png"} width="120" />
+        </.link>
+        <.link class="link link-hover text-md md:text-lg" navigate={~p"/products"}>
+          Productos
+        </.link>
+      </div>
+
+      <div class="block md:hidden">
+        <div>
+          <.drawer id="menu-modal" direction={:left} containerClass="w-[100vw] max-w-xl">
+            <div class="w-full h-full flex flex-col gap-6 sm:gap-10 pt-16">
+              <div class="w-full max-h-full h-full overflow-auto flex flex-col gap-14 px-2">
+                <div class="w-full block md:hidden py-2">
+                  <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
+                    id: "search_products_mobile",
+                    session: %{"query_params" => @params}
+                  ) %>
+                </div>
+                <div class="flex flex-col gap-6">
+                  <.link class="link text-lg" navigate="/">
+                    Home
+                  </.link>
+                  <.link class="link text-lg" navigate={~p"/products"}>
+                    Productos
+                  </.link>
+                </div>
+              </div>
+            </div>
+          </.drawer>
+          <.button
+            phx-click={show_drawer(:left, "menu-modal")}
+            class="btn btn-square rounded-md btn-md"
+          >
+            <.icon name="hero-bars-3" class="h-4 w-4" />
+          </.button>
+        </div>
+      </div>
+    </div>
+
+    <%!-- MIDDLE BLOCK --%>
+    <div>
+      <div class="hidden md:block">
+        <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
+          id: "search_products",
+          session: %{"query_params" => @params}
+        ) %>
+      </div>
+
+      <.link navigate="/" class="flex justify-center md:hidden">
+        <img src={~p"/images/logo-dark.png"} width="120" />
+      </.link>
+    </div>
+
+    <%!-- RIGHT BLOCK --%>
+    <div class="justify-self-end">
+      <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.CartModal, id: "cart_modal") %>
+    </div>
+  </div>
+</header>
+<main class="px-4 py-20 sm:px-6 lg:px-8">
+  <div class="container mx-auto">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>
+<footer class="p-4 sm:p-6 lg:p-8 mx-auto max-w-[1920px]">
+  <div class="flex flex-col gap-8">
+    <%!-- MAIN FOOTER --%>
+    <div class="flex flex-row gap-6 justify-between">
+      <div class="flex flex-col gap-4">
+        <img src={~p"/images/logo-dark.png"} width="100" />
+        <p class="text-md">
+          Proveedor de piezas y componentes especializados en Apple.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <.link class="link link-hover text-md" navigate="/">
+          Home
+        </.link>
+        <.link class="link link-hover text-md" navigate={~p"/products"}>
+          Productos
+        </.link>
+        <.link class="link link-hover text-md" navigate={~p"/about"}>
+          Acerca de
+        </.link>
+      </div>
+    </div>
+
+    <%!-- SEPARATOR --%>
+    <div class="border-t-2"></div>
+
+    <%!-- RIGHTS --%>
+    <div class="flex flex-row gap-6 justify-between">
+      <div class="text-md italic font-semibold">
+        2024 ACG Micro. Todos los derechos reservados.
+      </div>
+      <div class="text-md italic">
+        Escrito en
+        <a
+          href="https://elixir-lang.org/"
+          target="_blank"
+          class="font-semibold hover:text-gray-700"
+        >
+          <img class="inline relative -top-0.5" src={~p"/images/elixir.svg"} width="16" />Elixir
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

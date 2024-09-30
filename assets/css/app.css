@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url("/fonts/bebas-neue-latin-400-normal.woff2") format("woff2-variations");
+}
+
+/* SUBMISSION LOADING CLASSES */
+.while-submitting { display: none; }
+.inputs { display: block; }
+
+.phx-submit-loading .while-submitting { display: block; }
+.phx-submit-loading .inputs { display: none; }
