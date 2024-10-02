@@ -2,6 +2,8 @@ defmodule PhoenixDemoWeb.Router do
   import Backpex.Router
   use PhoenixDemoWeb, :router
 
+  import PhoenixDemoWeb.AdminAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -13,10 +15,18 @@ defmodule PhoenixDemoWeb.Router do
     plug :put_root_layout, html: {PhoenixDemoWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_current_admin
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  # Health Check for DevOps systems
+  scope "/", PhoenixDemoWeb do
+    pipe_through :browser
+    # Health Check for DevOps systems
+    get "/up", PageController, :health_check
   end
 
   scope "/", PhoenixDemoWeb do
@@ -43,11 +53,12 @@ defmodule PhoenixDemoWeb.Router do
   end
 
   scope "/admin", PhoenixDemoWeb do
-    pipe_through :browser
+    pipe_through [:browser, :require_authenticated_admin]
 
     backpex_routes()
 
-    live_session :default, on_mount: Backpex.InitAssigns do
+    live_session :default,
+      on_mount: [Backpex.InitAssigns, {PhoenixDemoWeb.AdminAuth, :ensure_authenticated}] do
       live_resources("/products", Admin.ProductsLive)
       live_resources("/categories", Admin.CategoriesLive)
       live_resources("/legal-pages", Admin.LegalPagesLive)
@@ -76,6 +87,73 @@ defmodule PhoenixDemoWeb.Router do
 
       live_dashboard "/dashboard", metrics: PhoenixDemoWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
+    end
+  end
+
+  ## Authentication routes
+
+  scope "/", PhoenixDemoWeb do
+    pipe_through [
+      :browser,
+      :redirect_if_admin_is_authenticated
+    ]
+
+    live_session :redirect_if_admin_is_authenticated,
+      on_mount: [
+        {PhoenixDemoWeb.AdminAuth, :redirect_if_admin_is_authenticated},
+        PhoenixDemoWeb.Layouts.NavParamsLoader
+      ] do
+      live "/admins/log_in", AdminLoginLive, :new
+      live "/admins/reset_password", AdminForgotPasswordLive, :new
+      live "/admins/reset_password/:token", AdminResetPasswordLive, :edit
+    end
+
+    post "/admins/log_in", AdminSessionController, :create
+  end
+
+  # Only allow admin creation if none exists
+  scope "/", PhoenixDemoWeb do
+    pipe_through [
+      :browser,
+      :redirect_if_admin_is_authenticated,
+      :only_allow_if_none_exists
+    ]
+
+    live_session :only_allow_if_none_exists,
+      on_mount: [
+        {PhoenixDemoWeb.AdminAuth, :redirect_if_admin_is_authenticated},
+        {PhoenixDemoWeb.AdminAuth, :only_allow_if_none_exists},
+        PhoenixDemoWeb.Layouts.NavParamsLoader
+      ] do
+      live "/admins/register", AdminRegistrationLive, :new
+    end
+  end
+
+  scope "/", PhoenixDemoWeb do
+    pipe_through [:browser, :require_authenticated_admin]
+
+    live_session :require_authenticated_admin,
+      on_mount: [
+        {PhoenixDemoWeb.AdminAuth, :ensure_authenticated},
+        PhoenixDemoWeb.Layouts.NavParamsLoader
+      ] do
+      live "/admins/settings", AdminSettingsLive, :edit
+      live "/admins/settings/confirm_email/:token", AdminSettingsLive, :confirm_email
+    end
+  end
+
+  scope "/", PhoenixDemoWeb do
+    pipe_through [:browser]
+
+    delete "/admins/log_out", AdminSessionController, :delete
+
+    live_session :current_admin,
+      on_mount: [
+        {PhoenixDemoWeb.AdminAuth, :mount_current_admin},
+        PhoenixDemoWeb.Layouts.NavParamsLoader
+      ] do
+      live "/admins/confirm/:token", AdminConfirmationLive, :edit
+      live "/admins/confirm", AdminConfirmationInstructionsLive, :new
     end
   end
 end

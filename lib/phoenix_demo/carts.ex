@@ -2,6 +2,7 @@ defmodule PhoenixDemo.Carts do
   alias PhoenixDemo.Repo
   alias PhoenixDemo.Schemas.Cart
   alias PhoenixDemo.Schemas.CartItem
+  import Ecto.Query
 
   def create_cart(attr) do
     Cart.changeset(%Cart{}, attr)
@@ -67,5 +68,11 @@ defmodule PhoenixDemo.Carts do
     |> CartItem.changeset(%{quantity: quantity})
     |> Repo.update!()
     |> Repo.preload(:product)
+  end
+
+  def clear_cart(id) do
+    CartItem
+    |> where([ci], ci.cart_id == ^id)
+    |> Repo.delete_all()
   end
 end

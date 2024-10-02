@@ -37,3 +37,6 @@ npm-debug.log
 
 # Ignore all env files
 *.env
+
+# Ignore Kamal secrets
+/.kamal/.secrets/

@@ -121,3 +121,4 @@ end
 # STRIPE
 source!([".env", System.get_env()])
 config :stripity_stripe, api_key: env!("STRIPE_API_KEY", :string)
+config :phoenix_demo, stripe_public: env!("PUBLIC_STRIPE_KEY", :string)

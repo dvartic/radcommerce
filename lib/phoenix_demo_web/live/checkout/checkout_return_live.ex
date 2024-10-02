@@ -1,10 +1,16 @@
 defmodule PhoenixDemoWeb.Checkout.CheckoutReturnLive do
   use PhoenixDemoWeb, :live_view
 
+  alias PhoenixDemo.Carts
+  alias PhoenixDemoWeb.PutCartCookie
+
   @impl true
-  def mount(params, _session, socket) do
+  def mount(params, session, socket) do
     # Read Stripe Checkout ID
     %{"id" => checkout_id} = params
+
+    # Cart Id
+    cart_id = session[PutCartCookie.cart_id_cookie_name()]
 
     # Read Stripe result
     stripe_session_res = Stripe.Checkout.Session.retrieve(checkout_id)
@@ -12,6 +18,9 @@ defmodule PhoenixDemoWeb.Checkout.CheckoutReturnLive do
     socket =
       case stripe_session_res do
         {:ok, stripe_session} ->
+          # Clear cart on success
+          Carts.clear_cart(cart_id)
+
           socket
           |> assign(:checkout_id, checkout_id)
           |> assign(:is_success, true)

@@ -90,5 +90,6 @@ window.addEventListener("phx:js-exec", ({ detail }) => {
   })
 })
 
-// Stripe Loader and event handling
-const stripe = Stripe("pk_test_51I9EOWJJkmhnt45UaoknSdJoLHjuUq29KSp3LLVBRvC4jyko25f8Y5pBwaquTq3y6YO1cbqKpjgK3XAprDyC0caV00lETdvOaX");
+// Stripe Loader
+let stripePublicKey = document.querySelector("meta[name='stripe-public']").getAttribute("content")
+const stripe = Stripe(stripePublicKey);
