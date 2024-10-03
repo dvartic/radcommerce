@@ -37,6 +37,8 @@ RUN mix local.hex --force && \
 
 # set build ENV
 ENV MIX_ENV="prod"
+# Disable HTTPS Check for Hex
+ENV HEX_UNSAFE_HTTPS=1
 
 # install mix dependencies
 COPY mix.exs mix.lock ./
