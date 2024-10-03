@@ -104,4 +104,4 @@ USER nobody
 # Expose Port
 EXPOSE 4000
 
-CMD ["/app/bin/migrate && /app/bin/server"]
+CMD ["sh", "-c", "/app/bin/migrate && /app/bin/server"]
