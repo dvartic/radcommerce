@@ -31,14 +31,15 @@ RUN npm install --global yarn
 # prepare build dir
 WORKDIR /app
 
+# Disable HTTPS Check for Hex
+ENV HEX_UNSAFE_HTTPS=1
+
 # install hex + rebar
 RUN mix local.hex --force && \
     mix local.rebar --force
 
 # set build ENV
 ENV MIX_ENV="prod"
-# Disable HTTPS Check for Hex
-ENV HEX_UNSAFE_HTTPS=1
 
 # install mix dependencies
 COPY mix.exs mix.lock ./
