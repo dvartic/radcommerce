@@ -70,6 +70,9 @@ COPY config/runtime.exs config/
 COPY rel rel
 RUN mix release
 
+# Run migrations
+RUN mix ecto.migrate
+
 # start a new build stage so that the final image will only contain
 # the compiled release and other runtime necessities
 FROM ${RUNNER_IMAGE}
@@ -100,9 +103,6 @@ USER nobody
 # advised to add an init process such as tini via `apt-get install`
 # above and adding an entrypoint. See https://github.com/krallin/tini for details
 # ENTRYPOINT ["/tini", "--"]
-
-# Run migrations
-RUN mix ecto.migrate
 
 # Expose Port
 EXPOSE 4000
