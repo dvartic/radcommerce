@@ -118,7 +118,12 @@ if config_env() == :prod do
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 end
 
-# STRIPE
-source!([".env", System.get_env()])
-config :stripity_stripe, api_key: env!("STRIPE_API_KEY", :string)
-config :phoenix_demo, stripe_public: env!("PUBLIC_STRIPE_KEY", :string)
+# STRIPE. For production, read from environment (set by Kamal). For dev, use Dotenvy in .env file
+if config_env() == :prod do
+  config :stripity_stripe, api_key: System.get_env("STRIPE_API_KEY")
+  config :phoenix_demo, stripe_public: System.get_env("PUBLIC_STRIPE_KEY")
+else
+  source!([".env", System.get_env()])
+  config :stripity_stripe, api_key: env!("STRIPE_API_KEY", :string)
+  config :phoenix_demo, stripe_public: env!("PUBLIC_STRIPE_KEY", :string)
+end
