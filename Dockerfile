@@ -21,7 +21,7 @@ ARG RUNNER_IMAGE="debian:${DEBIAN_VERSION}"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git curl && apt-get clean && rm -f /var/lib/apt/lists/*_*
+RUN apt-get update -y && apt-get install -y build-essential git curl ca-certificates && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # Install Node and Yarn environment
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
@@ -30,9 +30,6 @@ RUN npm install --global yarn
 
 # prepare build dir
 WORKDIR /app
-
-# Disable HTTPS Check for Hex
-ENV HEX_UNSAFE_HTTPS=1
 
 # install hex + rebar
 RUN mix local.hex --force && \
