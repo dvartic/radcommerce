@@ -45,6 +45,7 @@ env:
     - DATABASE_URL
     - STRIPE_API_KEY
     - PUBLIC_STRIPE_KEY
+    - PHX_HOST
 
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
