@@ -70,9 +70,6 @@ COPY config/runtime.exs config/
 COPY rel rel
 RUN mix release
 
-# Run migrations
-RUN mix ecto.migrate
-
 # start a new build stage so that the final image will only contain
 # the compiled release and other runtime necessities
 FROM ${RUNNER_IMAGE}
@@ -107,4 +104,4 @@ USER nobody
 # Expose Port
 EXPOSE 4000
 
-CMD ["/app/bin/server"]
+CMD ["/app/bin/migrate && /app/bin/server"]
