@@ -101,6 +101,9 @@ USER nobody
 # above and adding an entrypoint. See https://github.com/krallin/tini for details
 # ENTRYPOINT ["/tini", "--"]
 
+# Run migrations
+RUN mix ecto.migrate
+
 # Expose Port
 EXPOSE 4000
 
