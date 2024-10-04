@@ -67,7 +67,8 @@ defmodule PhoenixDemo.MixProject do
       # Stripe
       {:stripity_stripe, "~> 3.2"},
       # Dotenvy
-      {:dotenvy, "~> 0.8.0"}
+      {:dotenvy, "~> 0.8.0"},
+      {:image, "~> 0.54.4"}
     ]
   end
 

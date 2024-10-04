@@ -19,7 +19,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
         assigns.product.images
         |> Enum.map(fn rel_src -> ProductsLive.file_url(rel_src) end)
         |> then(fn
-          list when list == [] -> [ProductsLive.file_url("image-off.svg")]
+          list when list == [] -> ["/images/image-off.svg"]
           list -> list
         end)
       )
@@ -56,7 +56,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       phx-change="validate"
       phx-submit="save"
       autocomplete="off"
-      class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 border rounded-lg shadow p-4 md:p-12 bg-white dark:bg-black"
+      class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 border rounded-lg shadow p-4 md:p-12 bg-base-100"
     >
       <%!-- PRODUCT IMAGES --%>
       <div

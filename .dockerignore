@@ -49,3 +49,6 @@ erl_crash.dump
 
 # Kamal Secrets
 /.kamal/.secrets/
+
+# Ignore Uploaded Images
+/priv/static/uploads/

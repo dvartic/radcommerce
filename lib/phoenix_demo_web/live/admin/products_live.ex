@@ -92,7 +92,22 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
     file_name = file_name(entry)
     dest = Path.join([:code.priv_dir(:phoenix_demo), "static", upload_dir(), file_name])
 
-    File.cp!(path, dest)
+    # Read file
+    {:ok, image} = Image.open(path)
+    maxCurrSize = max(Image.width(image), Image.height(image))
+
+    # Process
+    image
+    |> then(fn image ->
+      if maxCurrSize > 800 do
+        {:ok, resized_image} = Image.resize(image, 800 / maxCurrSize)
+        resized_image
+      else
+        image
+      end
+    end)
+    |> Image.remove_metadata!()
+    |> Image.write(dest)
 
     {:ok, file_url(file_name)}
   end

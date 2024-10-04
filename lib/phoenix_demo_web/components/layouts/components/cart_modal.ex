@@ -148,12 +148,10 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
                     |> Enum.map(fn image ->
                       image =
                         if image == nil do
-                          "image-off.svg"
+                          "/images/image-off.svg"
                         else
-                          image
+                          ProductsLive.file_url(image)
                         end
-
-                      ProductsLive.file_url(image)
                     end)
                 }
               }

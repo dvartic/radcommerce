@@ -40,3 +40,6 @@ npm-debug.log
 
 # Ignore Kamal secrets
 /.kamal/.secrets/
+
+# Ignore Uploaded Images
+/priv/static/uploads/

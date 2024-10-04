@@ -14,8 +14,14 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
         assigns,
         :img_src,
         Map.get(assigns.cart_item.product || %{images: []}, :images)
-        |> List.first("image-off.svg")
-        |> ProductsLive.file_url()
+        |> List.first(nil)
+        |> then(fn img_src_or_nil ->
+          if img_src_or_nil == nil do
+            "/images/image-off.svg"
+          else
+            ProductsLive.file_url(img_src_or_nil)
+          end
+        end)
       )
 
     # Product Name
@@ -58,7 +64,9 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
       <%!-- NAME AND PRICE --%>
       <div class="flex flex-col gap-2 flex-grow h-full items-start justify-between">
         <div class="flex flex-col gap-1">
-          <p class="font-bold text-sm sm:text-md leading-4 sm:leading-5 line-clamp-2"><%= @product_name %></p>
+          <p class="font-bold text-sm sm:text-md leading-4 sm:leading-5 line-clamp-2">
+            <%= @product_name %>
+          </p>
 
           <%= if @properties_parsed != nil do %>
             <div class="flex flex-row max-h-[16px] overflow-hidden flex-wrap gap-1">

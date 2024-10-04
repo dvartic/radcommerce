@@ -16,8 +16,14 @@ defmodule PhoenixDemoWeb.Products.ProductCard do
         assigns,
         :img_src,
         assigns.product.images
-        |> List.first("image-off.svg")
-        |> ProductsLive.file_url()
+        |> List.first(nil)
+        |> then(fn img_src_or_nil ->
+          if img_src_or_nil == nil do
+            "/images/image-off.svg"
+          else
+            ProductsLive.file_url(img_src_or_nil)
+          end
+        end)
       )
 
     ~H"""
