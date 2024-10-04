@@ -27,9 +27,9 @@ defmodule PhoenixDemoWeb.Products.ProductCard do
       )
 
     ~H"""
-    <div class="card bg-base-100 w-full shadow-xl hover:shadow-rose-500/20">
+    <div class="card bg-base-100 w-full shadow-xl hover:shadow-yellow-500/20">
       <figure class="relative">
-        <img src={@img_src} alt={@product.name} class="w-full h-48 object-cover" />
+        <img src={@img_src} alt={@product.name} class="w-full h-48 object-contain bg-slate-50" />
       </figure>
 
       <.link class="absolute w-full h-full z-10" navigate={~p"/products/#{@product.id}"}></.link>
