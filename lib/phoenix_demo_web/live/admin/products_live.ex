@@ -90,7 +90,12 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
 
   defp consume_upload(_socket, _item, %{path: path} = _meta, entry) do
     file_name = file_name(entry)
-    dest = Path.join([:code.priv_dir(:phoenix_demo), "static", upload_dir(), file_name])
+    base_path = Path.join([:code.priv_dir(:phoenix_demo), "static", upload_dir()])
+    dest = Path.join([base_path, file_name])
+    # Ensure destination exists
+    if File.dir?(base_path) == false do
+      File.mkdir_p!(base_path)
+    end
 
     # Read file
     {:ok, image} = Image.open(path)
@@ -107,7 +112,7 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
       end
     end)
     |> Image.remove_metadata!()
-    |> Image.write(dest)
+    |> Image.write!(dest)
 
     {:ok, file_url(file_name)}
   end
