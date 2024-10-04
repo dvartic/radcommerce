@@ -45,7 +45,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
               phx-key="escape"
               phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="relative hidden bg-white p-4 sm:p-8 h-[100vh]"
+              class="relative hidden bg-white p-4 sm:p-8 h-[100dvh]"
             >
               <div class="absolute top-6 right-5">
                 <button
