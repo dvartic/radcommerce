@@ -17,7 +17,6 @@ servers:
 # Set ssl: false if using something like Cloudflare to terminate SSL (but keep host!).
 proxy:
   ssl: true
-  host: acgmicro.com
   hosts:
     - acgmicro.com # cannonical
     - www.acgmicro.com
