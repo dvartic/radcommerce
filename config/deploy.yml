@@ -18,6 +18,9 @@ servers:
 proxy:
   ssl: true
   host: acgmicro.com
+  hosts:
+    - acgmicro.com # cannonical
+    - www.acgmicro.com
   app_port: 4000
 
 # Credentials for your image host.
