@@ -14,7 +14,7 @@ module.exports = {
     "../lib/phoenix_demo_web.ex",
     "../lib/phoenix_demo_web/**/*.*ex",
     // Backpex
-    "../deps/backpex/**/*.*ex"
+    "../deps/backpex/**/*.*ex",
   ],
   theme: {
     extend: {

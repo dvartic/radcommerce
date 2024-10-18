@@ -2,6 +2,7 @@
   "dependencies": {
     "alpinejs": "^3.14.1",
     "daisyui": "^4.12.10",
-    "postcss": "^8.4.41"
+    "postcss": "^8.4.41",
+    "swiper": "^11.1.14"
   }
 }

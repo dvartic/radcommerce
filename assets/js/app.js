@@ -16,19 +16,22 @@
 //
 
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
-import "phoenix_html"
+import "phoenix_html";
 // Establish Phoenix Socket and LiveView configuration.
-import { Socket } from "phoenix"
-import { LiveSocket } from "phoenix_live_view"
-import topbar from "../vendor/topbar"
+import { Socket } from "phoenix";
+import { LiveSocket } from "phoenix_live_view";
+import topbar from "../vendor/topbar";
 // Custom imports
-import Alpine from "alpinejs"
+import Alpine from "alpinejs";
+import { SwiperProductPage } from "./swiper-product-page.js";
 
 // Alpine init
 window.Alpine = Alpine;
 Alpine.start();
 
-let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+let csrfToken = document
+  .querySelector("meta[name='csrf-token']")
+  .getAttribute("content");
 let liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
 
@@ -36,7 +39,7 @@ let liveSocket = new LiveSocket("/live", Socket, {
   dom: {
     onBeforeElUpdated(from, to) {
       if (from._x_dataStack) {
-        window.Alpine.clone(from, to)
+        window.Alpine.clone(from, to);
       }
     },
   },
@@ -56,40 +59,42 @@ let liveSocket = new LiveSocket("/live", Socket, {
 
           // Store event listener for destroy
           window.addEventListener("stripe-destroy", () => {
-            checkout.destroy()
-          })
+            checkout.destroy();
+          });
         }
         initialize(this.el.dataset.checkoutid);
-
       },
       destroyed() {
-        window.dispatchEvent(new CustomEvent("stripe-destroy", {}))
-      }
-    }
-  }
-})
+        window.dispatchEvent(new CustomEvent("stripe-destroy", {}));
+      },
+    },
+    SwiperProductPage,
+  },
+});
 
 // Show progress bar on live navigation and form submits
-topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" })
-window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
-window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
+topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" });
+window.addEventListener("phx:page-loading-start", (_info) => topbar.show(300));
+window.addEventListener("phx:page-loading-stop", (_info) => topbar.hide());
 
 // connect if there are any LiveViews on the page
-liveSocket.connect()
+liveSocket.connect();
 
 // expose liveSocket on window for web console debug logs and latency simulation:
 // >> liveSocket.enableDebug()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
-window.liveSocket = liveSocket
+window.liveSocket = liveSocket;
 
 // Server Pushed Events Handling
 window.addEventListener("phx:js-exec", ({ detail }) => {
-  document.querySelectorAll(detail.to).forEach(el => {
-    liveSocket.execJS(el, el.getAttribute(detail.attr))
-  })
-})
+  document.querySelectorAll(detail.to).forEach((el) => {
+    liveSocket.execJS(el, el.getAttribute(detail.attr));
+  });
+});
 
 // Stripe Loader
-let stripePublicKey = document.querySelector("meta[name='stripe-public']").getAttribute("content")
+let stripePublicKey = document
+  .querySelector("meta[name='stripe-public']")
+  .getAttribute("content");
 const stripe = Stripe(stripePublicKey);

@@ -1,6 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "../node_modules/swiper/swiper.min.css";
+@import "../node_modules/swiper/modules/navigation.min.css";
+@import "../node_modules/swiper/modules/pagination.min.css";
+@import "../node_modules/swiper/modules/pagination-element.min.css";
 
 @font-face {
     font-family: 'Bebas Neue';

@@ -59,40 +59,55 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 border rounded-lg shadow p-4 md:p-12 bg-base-100"
     >
       <%!-- PRODUCT IMAGES --%>
-      <div
-        class="flex flex-col gap-6 lg:gap-12 items-center"
-        x-data={"{selectedImg: 0, imagesList: #{Jason.encode!(@img_src_list)}}"}
-      >
-        <div class="flex flex-col gap-2 items-center">
-          <img class="h-[300px] sm:h-[500px] object-contain" x-bind:src="imagesList[selectedImg]" />
+      <div class="flex flex-col gap-6 lg:gap-12 items-center">
+        <div
+          class="swiper swiper-product-page w-full"
+          id="swiper-product-page"
+          phx-hook="SwiperProductPage"
+        >
+          <%!-- Maximize image in moda --%>
+          <.modal id="max-image-modal" containerClass="w-full max-w-[95vw]">
+            <div class="h-[80dvh]">
+              <img
+                id="max-image-modal-image"
+                class="h-full w-full object-contain"
+                data-img-src-list={Jason.encode!(@img_src_list)}
+                alt="Maximized product image"
+              />
+            </div>
+          </.modal>
+          <.button
+            phx-click={show_modal("max-image-modal")}
+            class="absolute right-0 z-10 btn btn-outline btn-circle btn-sm"
+            type="button"
+          >
+            <.icon name="hero-magnifying-glass-plus" class="h-4 w-4" />
+          </.button>
 
-          <%!-- Move left right buttons --%>
-          <div class="flex flex-row gap-2">
-            <button
-              class="btn btn-circle"
-              x-on:click="if (selectedImg >= 0) selectedImg--"
-              x-bind:disabled="selectedImg <= 0"
-              type="button"
-            >
-              <.icon name="hero-arrow-left" class="h-6 w-6" />
-            </button>
-            <button
-              class="btn btn-circle"
-              x-on:click="if (selectedImg < imagesList.length - 1) selectedImg++"
-              x-bind:disabled="selectedImg === (imagesList.length - 1)"
-              type="button"
-            >
-              <.icon class="h-6 w-6" name="hero-arrow-right" />
-            </button>
+          <div class="swiper-wrapper">
+            <%= for img_src <- @img_src_list do %>
+              <div class="swiper-slide">
+                <img
+                  src={img_src}
+                  alt="Product image"
+                  class="w-full max-h-[300px] sm:max-h-[500px] object-contain"
+                />
+              </div>
+            <% end %>
           </div>
+          <div class="swiper-pagination [&>*.swiper-pagination-bullet-active]:!bg-primary"></div>
+          <div class="swiper-button-prev !text-primary hover:!text-secondary"></div>
+          <div class="swiper-button-next !text-primary hover:!text-secondary"></div>
         </div>
 
+        <%!-- Thumbnails --%>
         <div class="max-w-full flex flex-row flex-wrap justify-center gap-4 px-2 py-6">
           <%= for {img_src, index} <- Enum.with_index(@img_src_list) do %>
+            <%!-- Each thumbnail includes an event listener for click --%>
             <div
-              class="flex items-center justify-center ring-1 rounded-md h-20 sm:h-28 p-2 aspect-square cursor-pointer shadow hover:shadow-lg"
-              x-on:click={"selectedImg = #{index}"}
-              x-bind:class={"{'ring-accent': selectedImg === #{index}, 'ring-neutral-content': selectedImg !== #{index}}"}
+              id={"swiper-thumbnail-#{index}"}
+              class="flex items-center justify-center ring-1 rounded-md h-20 sm:h-28 p-2 aspect-square cursor-pointer shadow hover:shadow-lg ring-neutral-content"
+              data-index={index}
             >
               <img class="h-full object-contain" src={img_src} />
             </div>
