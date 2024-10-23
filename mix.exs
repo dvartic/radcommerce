@@ -61,7 +61,7 @@ defmodule PhoenixDemo.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       # Backpex
-      {:backpex, "~> 0.6.0"},
+      {:backpex, "~> 0.7.1"},
       # Mdex Markdown
       {:mdex, "~> 0.1"},
       # Stripe

@@ -16,7 +16,7 @@ defmodule PhoenixDemoWeb.Checkout.CheckoutLive do
     ~H"""
     <div class="flex flex-col gap-16">
       <h1 class="text-center lg:text-left font-heading text-6xl">
-        Envío y pago
+        <%= gettext("Envío y pago") %>
       </h1>
       <div id="checkout" phx-hook="InitCheckout" data-checkoutid={@checkout_id}>
         <!-- Checkout will insert the payment form here -->

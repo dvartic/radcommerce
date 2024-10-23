@@ -4,7 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 
 export const SwiperProductPage = {
   mounted() {
-    const swiper =new Swiper(this.el, {
+    const swiper = new Swiper(this.el, {
       // configure Swiper to use modules
       modules: [Navigation, Pagination],
 

@@ -1,0 +1,291 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/phoenix_demo_web/live/home_live.ex:33
+#, elixir-autogen, elixir-format
+msgid "A toda Europa"
+msgstr "All across Europe"
+
+#: lib/phoenix_demo_web/components/core_components.ex:506
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr "Actions"
+
+#: lib/phoenix_demo_web/components/core_components.ex:161
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr "Attempting to reconnect"
+
+#: lib/phoenix_demo_web/components/core_components.ex:152
+#, elixir-autogen, elixir-format
+msgid "Error!"
+msgstr "Error!"
+
+#: lib/phoenix_demo_web/components/core_components.ex:173
+#, elixir-autogen, elixir-format
+msgid "Hang in there while we get back on track"
+msgstr "Hang in there while we get back on track"
+
+#: lib/phoenix_demo_web/components/core_components.ex:168
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr "Something went wrong!"
+
+#: lib/phoenix_demo_web/components/core_components.ex:151
+#, elixir-autogen, elixir-format
+msgid "Success!"
+msgstr "Success!"
+
+#: lib/phoenix_demo_web/components/core_components.ex:156
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr "We can't find the internet"
+
+#: lib/phoenix_demo_web/components/core_components.ex:77
+#: lib/phoenix_demo_web/components/core_components.ex:131
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr "close"
+
+#: lib/phoenix_demo_web/live/home_live.ex:46
+#, elixir-autogen, elixir-format
+msgid "100% votos positivos"
+msgstr "100% positive feedback"
+
+#: lib/phoenix_demo_web/live/home_live.ex:56
+#, elixir-autogen, elixir-format
+msgid ">1.2 mil artículos vendidos"
+msgstr ">1.2 thousand items sold"
+
+#: lib/phoenix_demo_web/live/home_live.ex:142
+#, elixir-autogen, elixir-format
+msgid "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
+msgstr "Contact us if you have any questions or issues with your order. We'll respond as soon as possible within 24 hours."
+
+#: lib/phoenix_demo_web/live/home_live.ex:99
+#, elixir-autogen, elixir-format
+msgid "Devoluciones"
+msgstr "Returns"
+
+#: lib/phoenix_demo_web/live/home_live.ex:105
+#, elixir-autogen, elixir-format
+msgid "Devoluciones gratuitas 30 días."
+msgstr "Free 30-day returns."
+
+#: lib/phoenix_demo_web/live/home_live.ex:31
+#, elixir-autogen, elixir-format
+msgid "Envío Gratis"
+msgstr "Free Shipping"
+
+#: lib/phoenix_demo_web/live/home_live.ex:123
+#, elixir-autogen, elixir-format
+msgid "Envío gratuíto en todos los productos."
+msgstr "Free shipping on all products."
+
+#: lib/phoenix_demo_web/live/home_live.ex:117
+#, elixir-autogen, elixir-format
+msgid "Envíos"
+msgstr "Shipping"
+
+#: lib/phoenix_demo_web/live/home_live.ex:65
+#, elixir-autogen, elixir-format
+msgid "Especializados"
+msgstr "Specialized"
+
+#: lib/phoenix_demo_web/live/home_live.ex:53
+#, elixir-autogen, elixir-format
+msgid "Experiencia"
+msgstr "Experience"
+
+#: lib/phoenix_demo_web/live/home_live.ex:82
+#, elixir-autogen, elixir-format
+msgid "Hero image"
+msgstr "Hero image"
+
+#: lib/phoenix_demo_web/live/home_live.ex:74
+#, elixir-autogen, elixir-format
+msgid "Información"
+msgstr "Information"
+
+#: lib/phoenix_demo_web/live/home_live.ex:107
+#, elixir-autogen, elixir-format
+msgid "Inicia el proceso poniéndote en contacto con nosotros."
+msgstr "Start the process by contacting us."
+
+#: lib/phoenix_demo_web/live/home_live.ex:67
+#, elixir-autogen, elixir-format
+msgid "Miles de componentes vendidos. Envío gratuíto a Europa. Soporte rápido experto en Apple."
+msgstr "Thousands of components sold. Free shipping to Europe. Fast expert Apple support."
+
+#: lib/phoenix_demo_web/live/home_live.ex:65
+#, elixir-autogen, elixir-format
+msgid "Piezas y componentes de electrónica."
+msgstr "Electronic parts and components."
+
+#: lib/phoenix_demo_web/live/home_live.ex:93
+#, elixir-autogen, elixir-format
+msgid "Por qué elegirnos"
+msgstr "Why choose us"
+
+#: lib/phoenix_demo_web/live/home_live.ex:106
+#, elixir-autogen, elixir-format
+msgid "Recogidas directas en dirección o depósito en punto de entrega."
+msgstr "Direct pickups at address or deposit at delivery point."
+
+#: lib/phoenix_demo_web/live/home_live.ex:98
+#, elixir-autogen, elixir-format
+msgid "Return policy"
+msgstr "Return policy"
+
+#: lib/phoenix_demo_web/live/home_live.ex:126
+#, elixir-autogen, elixir-format
+msgid "Se envía el mismo día si se compra antes de las 13:00h hora EET."
+msgstr "Same-day shipping if purchased before 13:00 EET."
+
+#: lib/phoenix_demo_web/live/home_live.ex:124
+#, elixir-autogen, elixir-format
+msgid "Servicio 24hrs península y 48/72hrs islas."
+msgstr "24-hour service for mainland and 48/72-hour service for islands."
+
+#: lib/phoenix_demo_web/live/home_live.ex:125
+#, elixir-autogen, elixir-format
+msgid "Servicio estándar y express a Europa."
+msgstr "Standard and express service to Europe."
+
+#: lib/phoenix_demo_web/live/home_live.ex:116
+#, elixir-autogen, elixir-format
+msgid "Shipping policy"
+msgstr "Shipping policy"
+
+#: lib/phoenix_demo_web/live/home_live.ex:135
+#, elixir-autogen, elixir-format
+msgid "Soporte"
+msgstr "Support"
+
+#: lib/phoenix_demo_web/live/home_live.ex:144
+#, elixir-autogen, elixir-format
+msgid "Trabajaremos con diligencia para resolver cualquier problema."
+msgstr "We will work diligently to resolve any issues."
+
+#: lib/phoenix_demo_web/live/home_live.ex:71
+#, elixir-autogen, elixir-format
+msgid "Ver Productos"
+msgstr "View Products"
+
+#: lib/phoenix_demo_web/live/home_live.ex:65
+#, elixir-autogen, elixir-format
+msgid "en Apple."
+msgstr "in Apple."
+
+#: lib/phoenix_demo_web/live/home_live.ex:39
+#, elixir-autogen, elixir-format
+msgid "⋆⋆⋆⋆⋆"
+msgstr "⋆⋆⋆⋆⋆"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:106
+#, elixir-autogen, elixir-format
+msgid "2024 ACG Micro. Todos los derechos reservados."
+msgstr "2024 ACG Micro. All rights reserved."
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:95
+#, elixir-autogen, elixir-format
+msgid "Acerca de"
+msgstr "About"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:115
+#, elixir-autogen, elixir-format
+msgid "Elixir"
+msgstr "Elixir"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:109
+#, elixir-autogen, elixir-format
+msgid "Escrito en"
+msgstr "Written in"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:27
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:89
+#, elixir-autogen, elixir-format
+msgid "Home"
+msgstr "Home"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:10
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:30
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:92
+#, elixir-autogen, elixir-format
+msgid "Productos"
+msgstr "Products"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:79
+#, elixir-autogen, elixir-format
+msgid "Proveedor de piezas y componentes especializados en Apple."
+msgstr "Provider of specialized Apple parts and components."
+
+#: lib/phoenix_demo_web/live/products/product/product_view.ex:169
+#, elixir-autogen, elixir-format
+msgid "Añadir a carrito"
+msgstr "Add to cart"
+
+#: lib/phoenix_demo_web/components/layouts/components/search_products.ex:45
+#, elixir-autogen, elixir-format
+msgid "Buscar"
+msgstr "Search"
+
+#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:223
+#, elixir-autogen, elixir-format
+msgid "Carrito"
+msgstr "Cart"
+
+#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:270
+#, elixir-autogen, elixir-format
+msgid "Realizar Compra"
+msgstr "Place Order"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:19
+#, elixir-autogen, elixir-format
+msgid "Envío y pago"
+msgstr "Shipping and Payment"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:78
+#, elixir-autogen, elixir-format
+msgid "Error! El proceso de pago ha fallado:"
+msgstr "Error! The payment process has failed:"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:89
+#, elixir-autogen, elixir-format
+msgid "Hemos enviado un correo electrónico a"
+msgstr "We have sent an email to"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:101
+#, elixir-autogen, elixir-format
+msgid "Por favor, intenta el pago de nuevo. Si el error persiste, contacta con nosotros."
+msgstr "Please try the payment again. If the error persists, contact us."
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:94
+#, elixir-autogen, elixir-format
+msgid "Recibirás un nuevo correo con número de seguimiento."
+msgstr "You will receive a new email with a tracking number."
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:86
+#, elixir-autogen, elixir-format
+msgid "Se ha completado el pago y el pedido se ha realizado con éxito."
+msgstr "The payment has been completed and the order has been successfully placed."
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:61
+#, elixir-autogen, elixir-format
+msgid "Tu compra se ha realizado con éxito!"
+msgstr "Your purchase has been completed successfully!"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_return_live.ex:91
+#, elixir-autogen, elixir-format
+msgid "con los datos del pedido."
+msgstr "with the order details."

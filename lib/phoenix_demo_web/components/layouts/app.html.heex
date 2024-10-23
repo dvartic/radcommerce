@@ -6,8 +6,8 @@
         <.link navigate="/">
           <img src={~p"/images/logo-dark.png"} width="120" />
         </.link>
-        <.link class="link link-hover text-md md:text-lg" navigate={~p"/products"}>
-          Productos
+        <.link id="navigate_to_products" phx-hook="HeaderLinkActive" class="link link-hover text-md md:text-lg" navigate={~p"/products"}>
+          <%= gettext("Productos") %>
         </.link>
       </div>
 
@@ -24,10 +24,10 @@
                 </div>
                 <div class="flex flex-col gap-6">
                   <.link class="link text-lg" navigate="/">
-                    Home
+                    <%= gettext("Home") %>
                   </.link>
                   <.link class="link text-lg" navigate={~p"/products"}>
-                    Productos
+                    <%= gettext("Productos") %>
                   </.link>
                 </div>
               </div>
@@ -76,19 +76,23 @@
       <div class="flex flex-col gap-4">
         <img src={~p"/images/logo-dark.png"} width="100" />
         <p class="text-md">
-          Proveedor de piezas y componentes especializados en Apple.
+          <%= gettext("Proveedor de piezas y componentes especializados en Apple.") %>
         </p>
+        <%!-- LANGUAGE SELECTOR --%>
+        <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.LanguageSelector,
+          id: "language_selector"
+        ) %>
       </div>
 
       <div class="flex flex-col gap-4">
         <.link class="link link-hover text-md" navigate="/">
-          Home
+          <%= gettext("Home") %>
         </.link>
         <.link class="link link-hover text-md" navigate={~p"/products"}>
-          Productos
+          <%= gettext("Productos") %>
         </.link>
         <.link class="link link-hover text-md" navigate={~p"/about"}>
-          Acerca de
+          <%= gettext("Acerca de") %>
         </.link>
       </div>
     </div>
@@ -99,16 +103,16 @@
     <%!-- RIGHTS --%>
     <div class="flex flex-row gap-6 justify-between">
       <div class="text-md italic font-semibold">
-        2024 ACG Micro. Todos los derechos reservados.
+        <%= gettext("2024 ACG Micro. Todos los derechos reservados.") %>
       </div>
       <div class="text-md italic">
-        Escrito en
+        <%= gettext("Escrito en") %>
         <a
           href="https://elixir-lang.org/"
           target="_blank"
           class="font-semibold hover:text-gray-700"
         >
-          <img class="inline relative -top-0.5" src={~p"/images/elixir.svg"} width="16" />Elixir
+          <img class="inline relative -top-0.5" src={~p"/images/elixir.svg"} width="16" /><%= gettext("Elixir") %>
         </a>
       </div>
     </div>

@@ -16,6 +16,18 @@ defmodule PhoenixDemo.Products do
     Repo.all(query)
   end
 
+  def list_products_by_cat(cat_id) do
+    query =
+      from(products in Product,
+        order_by: [desc: :inserted_at],
+        join: cat in assoc(products, :categories),
+        where: cat.id == ^cat_id,
+        distinct: products.id
+      )
+
+    Repo.all(query)
+  end
+
   def search_products(search_query) do
     ilike_query = "%" <> search_query <> "%"
 

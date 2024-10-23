@@ -43,7 +43,7 @@ defmodule PhoenixDemoWeb do
         layouts: [html: PhoenixDemoWeb.Layouts]
 
       import Plug.Conn
-      import PhoenixDemoWeb.Gettext
+      use Gettext, backend: PhoenixDemoWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -87,7 +87,7 @@ defmodule PhoenixDemoWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import PhoenixDemoWeb.CoreComponents
-      import PhoenixDemoWeb.Gettext
+      use Gettext, backend: PhoenixDemoWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

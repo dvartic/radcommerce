@@ -12,6 +12,8 @@ defmodule PhoenixDemoWeb.Router do
     plug PhoenixDemoWeb.PutCartCookie
     # Read domain and put it in session
     plug PhoenixDemoWeb.PutDomain
+    # Locale
+    plug PhoenixDemoWeb.Locale
     plug :put_root_layout, html: {PhoenixDemoWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
@@ -32,7 +34,8 @@ defmodule PhoenixDemoWeb.Router do
   scope "/", PhoenixDemoWeb do
     pipe_through :browser
 
-    live_session :main, on_mount: [PhoenixDemoWeb.Layouts.NavParamsLoader] do
+    live_session :main,
+      on_mount: [PhoenixDemoWeb.Layouts.NavParamsLoader, PhoenixDemoWeb.RestoreLocale] do
       live "/", HomeLive, :index
 
       # All products
@@ -50,6 +53,8 @@ defmodule PhoenixDemoWeb.Router do
       # Checkout Return
       live "/checkout-return/:id", Checkout.CheckoutReturnLive, :index
     end
+
+    post "/change_language", ChangeLanguageController, :change_language
   end
 
   scope "/admin", PhoenixDemoWeb do

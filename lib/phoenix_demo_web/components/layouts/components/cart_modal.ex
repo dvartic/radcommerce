@@ -1,5 +1,8 @@
 defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   use PhoenixDemoWeb, :live_view
+
+  on_mount PhoenixDemoWeb.RestoreLocale
+
   import PhoenixDemoWeb.CustomComponents
 
   alias PhoenixDemo.Carts
@@ -128,6 +131,10 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   @impl true
   def handle_info({:run_checkout, cart}, socket) do
     domain = socket.assigns.domain
+
+    # Read i18n
+    current_locale = Gettext.get_locale(PhoenixDemoWeb.Gettext)
+
     # Create checkout session
     session_res =
       Stripe.Checkout.Session.create(%{
@@ -161,8 +168,10 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
         shipping_address_collection: %{
           allowed_countries: get_allowed_countries()
         },
-        custom_text: %{shipping_address: %{message: "Envío express o estándar desde España"}},
-        locale: :es,
+        custom_text: %{
+          shipping_address: %{message: gettext("Envío express o estándar desde España")}
+        },
+        locale: String.to_atom(current_locale),
         phone_number_collection: %{enabled: true}
       })
 
@@ -215,9 +224,9 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   def render(assigns) do
     ~H"""
     <div>
-      <.drawer id="confirm-modal" containerClass="w-full max-w-xl">
+      <.drawer id="confirm-modal" containerClass="w-[100vw] max-w-xl">
         <div class="h-full flex flex-col gap-6 sm:gap-10">
-          <h1 class="font-bold text-xl">Carrito</h1>
+          <h1 class="font-bold text-xl"><%= gettext("Carrito") %></h1>
           <%!-- CART ITEMS --%>
           <div class="max-h-full h-full overflow-auto flex flex-col gap-6 sm:gap-10 px-2">
             <%= for cart_item <- @cart.items do %>
@@ -264,7 +273,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
               <% else %>
                 <.icon name="hero-shopping-bag" class="h-6 w-6" />
               <% end %>
-              Continuar Compra
+              <%= gettext("Realizar Compra") %>
             </button>
           </div>
         </div>

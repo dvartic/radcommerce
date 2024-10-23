@@ -1,6 +1,8 @@
 defmodule PhoenixDemoWeb.Layouts.Components.SearchProducts do
   use PhoenixDemoWeb, :live_view
 
+  on_mount PhoenixDemoWeb.RestoreLocale
+
   @impl true
   def mount(_params, session, socket) do
     default_query = Map.get(session["query_params"], "q", "")
@@ -40,7 +42,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.SearchProducts do
       >
         <input
           class="flex-grow"
-          placeholder="Buscar"
+          placeholder={gettext("Buscar")}
           type="text"
           name={@form[:search_query].name}
           id={@liveview_id <> ":" <> @form[:search_query].id}

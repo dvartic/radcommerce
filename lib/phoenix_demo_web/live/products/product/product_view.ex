@@ -1,6 +1,7 @@
 defmodule PhoenixDemoWeb.Products.Product.ProductView do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
+  use Gettext, backend: PhoenixDemoWeb.Gettext
 
   # Product Schema
   alias PhoenixDemo.Schemas.Product
@@ -78,7 +79,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
           </.modal>
           <.button
             phx-click={show_modal("max-image-modal")}
-            class="absolute right-0 z-10 btn btn-outline btn-circle btn-sm"
+            class="absolute right-0 z-10 btn btn-circle btn-sm"
             type="button"
           >
             <.icon name="hero-magnifying-glass-plus" class="h-4 w-4" />
@@ -165,7 +166,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
           </div>
           <%!-- ACTION --%>
           <button class="btn btn-block btn-primary btn-lg phx-submit-loading:opacity-75">
-            <.icon name="hero-plus" class="h-6 w-6" /> Añadir a carrito
+            <.icon name="hero-plus" class="h-6 w-6" /> <%= gettext("Añadir a carrito") %>
           </button>
         </div>
       </div>

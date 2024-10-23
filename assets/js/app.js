@@ -24,6 +24,9 @@ import topbar from "../vendor/topbar";
 // Custom imports
 import Alpine from "alpinejs";
 import { SwiperProductPage } from "./swiper-product-page.js";
+import { ChangeLanguageSelector } from "./change-language-selector.js";
+import { HeaderLinkActive } from "./header-link-active.js";
+import {CycleAdvantages} from './hero-adv-cycle.js'
 
 // Alpine init
 window.Alpine = Alpine;
@@ -69,6 +72,9 @@ let liveSocket = new LiveSocket("/live", Socket, {
       },
     },
     SwiperProductPage,
+    ChangeLanguageSelector,
+    HeaderLinkActive,
+    CycleAdvantages
   },
 });
 
