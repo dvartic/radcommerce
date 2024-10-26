@@ -1,6 +1,6 @@
 defmodule PhoenixDemoWeb.AdminRegistrationLive do
   use PhoenixDemoWeb, :live_view
-
+  import PhoenixDemoWeb.CustomComponents
   alias PhoenixDemo.Accounts
   alias PhoenixDemo.Accounts.Admin
 
@@ -11,9 +11,13 @@ defmodule PhoenixDemoWeb.AdminRegistrationLive do
         Register for an account
         <:subtitle>
           Already registered?
-          <.link navigate={~p"/admins/log_in"} class="font-semibold text-brand hover:underline">
+          <.fast_link
+            id="a886c313-9247-47b7-96e4-a9a1fe7bb6aa"
+            navigate={~p"/admins/log_in"}
+            class="font-semibold text-brand hover:underline"
+          >
             Log in
-          </.link>
+          </.fast_link>
           to your account now.
         </:subtitle>
       </.header>

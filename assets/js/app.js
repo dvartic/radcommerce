@@ -26,7 +26,9 @@ import Alpine from "alpinejs";
 import { SwiperProductPage } from "./swiper-product-page.js";
 import { ChangeLanguageSelector } from "./change-language-selector.js";
 import { HeaderLinkActive } from "./header-link-active.js";
-import {CycleAdvantages} from './hero-adv-cycle.js'
+import { CycleAdvantages } from "./hero-adv-cycle.js";
+import { FastLink } from "./fast-link.js";
+import { FormSubmitOnMousedown } from "./form-submit-onmousedown.js";
 
 // Alpine init
 window.Alpine = Alpine;
@@ -74,7 +76,9 @@ let liveSocket = new LiveSocket("/live", Socket, {
     SwiperProductPage,
     ChangeLanguageSelector,
     HeaderLinkActive,
-    CycleAdvantages
+    CycleAdvantages,
+    FastLink,
+    FormSubmitOnMousedown,
   },
 });
 
@@ -82,6 +86,23 @@ let liveSocket = new LiveSocket("/live", Socket, {
 topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" });
 window.addEventListener("phx:page-loading-start", (_info) => topbar.show(300));
 window.addEventListener("phx:page-loading-stop", (_info) => topbar.hide());
+
+// Custom events support. Use qphx-{{event}} to execute a custom event not provided natively by LiveView.
+window.addEventListener("mousedown", (e) => {
+  // if the event's target has the qphx-mouseover attribute,
+  // execute the commands on that element
+  const element = e.target.closest("[qphx-mousedown]");
+  if (element) {
+    const action = element.getAttribute("qphx-mousedown");
+    liveSocket.execJS(element, action);
+  }
+
+  document.querySelectorAll("[qphx-mousedown-away]").forEach((el) => {
+    if (!el.contains(e.target)) {
+      liveSocket.execJS(el, el.getAttribute("qphx-mousedown-away"));
+    }
+  });
+});
 
 // connect if there are any LiveViews on the page
 liveSocket.connect();
@@ -92,7 +113,7 @@ liveSocket.connect();
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
 
-// Server Pushed Events Handling
+// Server Pushed Events Handling. Allows to execute JS code from the server,  previously stored in a data attribute.
 window.addEventListener("phx:js-exec", ({ detail }) => {
   document.querySelectorAll(detail.to).forEach((el) => {
     liveSocket.execJS(el, el.getAttribute(detail.attr));

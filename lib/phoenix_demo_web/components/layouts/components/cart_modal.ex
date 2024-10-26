@@ -244,8 +244,9 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
             <button
               type="button"
               class="btn btn-block btn-primary btn-lg"
-              phx-click="checkout"
+              qphx-mousedown={JS.push("checkout")}
               disabled={@cart.items == [] || @is_loading}
+              aria-label="Open cart and proceed to checkout"
             >
               <%= if @is_loading == true do %>
                 <svg
@@ -279,7 +280,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
         </div>
       </.drawer>
       <.button
-        phx-click={show_drawer(:right, "confirm-modal")}
+        qphx-mousedown={show_drawer(:right, "confirm-modal")}
         class="btn btn-square btn-primary rounded-md btn-md"
       >
         <.icon name="hero-shopping-cart-solid" class="h-4 w-4" />

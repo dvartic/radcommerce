@@ -1,6 +1,7 @@
 defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
+  alias Phoenix.LiveView.JS
 
   alias PhoenixDemo.Schemas.CartItem
   alias PhoenixDemoWeb.Admin.ProductsLive
@@ -82,7 +83,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
       <div class="h-full flex flex-col items-end justify-between gap-2">
         <button
           class="btn btn-square btn-xs phx-submit-loading:opacity-75"
-          phx-click="delete_item"
+          qphx-mousedown={JS.push("delete_item")}
           phx-value-itemid={@cart_item.id}
         >
           <.icon name="hero-trash" class="h-3 w-3" />
@@ -90,7 +91,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
         <div class="flex flex-row items-center gap-2">
           <button
             class="btn btn-square btn-xs phx-submit-loading:opacity-75"
-            phx-click="decrease_quantity"
+            qphx-mousedown={JS.push("decrease_quantity")}
             phx-value-itemid={@cart_item.id}
           >
             <.icon name="hero-minus" class="h-3 w-3" />
@@ -103,11 +104,11 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
             maxlength="2"
             value={@cart_item.quantity}
             phx-value-itemid={@cart_item.id}
-            phx-blur="set_quantity"
+            phx-blur={JS.push("set_quantity")}
           />
           <button
             class="btn btn-square btn-xs phx-submit-loading:opacity-75"
-            phx-click="increase_quantity"
+            qphx-mousedown={JS.push("increase_quantity")}
             phx-value-itemid={@cart_item.id}
           >
             <.icon name="hero-plus" class="h-3 w-3" />

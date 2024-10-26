@@ -1,5 +1,6 @@
 defmodule PhoenixDemoWeb.AdminForgotPasswordLive do
   use PhoenixDemoWeb, :live_view
+  import PhoenixDemoWeb.CustomComponents
 
   alias PhoenixDemo.Accounts
 
@@ -20,8 +21,13 @@ defmodule PhoenixDemoWeb.AdminForgotPasswordLive do
         </:actions>
       </.simple_form>
       <p class="text-center text-sm mt-4">
-        <.link href={~p"/admins/register"}>Register</.link>
-        | <.link href={~p"/admins/log_in"}>Log in</.link>
+        <.fast_link id="60cdcf0d-9bb3-44b5-bce3-a23e06b26f32" href={~p"/admins/register"}>
+          Register
+        </.fast_link>
+        |
+        <.fast_link id="2d27198b-0300-4717-adc6-d295cdb66d54" href={~p"/admins/log_in"}>
+          Log in
+        </.fast_link>
       </p>
     </div>
     """

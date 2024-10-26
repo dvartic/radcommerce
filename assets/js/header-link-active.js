@@ -1,16 +1,16 @@
 export const HeaderLinkActive = {
   mounted() {
-    const productLink = this.el
-    
+    const productLink = this.el;
+
     if (productLink) {
       const updateLinkClass = () => {
         const currentPath = window.location.pathname;
-        const linkPath = productLink.getAttribute('href');
+        const linkPath = productLink.getAttribute("href");
 
         if (currentPath === linkPath) {
-          productLink.classList.remove('link-hover');
+          productLink.classList.remove("link-hover");
         } else {
-          productLink.classList.add('link-hover');
+          productLink.classList.add("link-hover");
         }
       };
 
@@ -18,7 +18,7 @@ export const HeaderLinkActive = {
       updateLinkClass();
 
       // Add event listener for navigation changes
-      window.addEventListener('phx:page-loading-stop', updateLinkClass);
+      window.addEventListener("phx:page-loading-stop", updateLinkClass);
     }
-  }
+  },
 };

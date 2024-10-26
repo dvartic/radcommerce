@@ -3,12 +3,17 @@
     <%!-- LEFT BLOCK --%>
     <div class="w-full">
       <div class="hidden md:flex flex-row gap-4 md:gap-6 lg:gap-12 items-center">
-        <.link navigate="/">
-          <img src={~p"/images/logo-dark.png"} width="120" />
-        </.link>
-        <.link id="navigate_to_products" phx-hook="HeaderLinkActive" class="link link-hover text-md md:text-lg" navigate={~p"/products"}>
+        <.fast_link id="d0579c85-dfba-46c9-9722-fb8e5a2337ff" navigate="/" aria-label="Home">
+          <img src={~p"/images/logo-dark.avif"} width="120" height="38" alt="ACG Micro" />
+        </.fast_link>
+        <.fast_link
+          id="8c68c419-1029-4023-9fee-13e4931197a7"
+          phx-hook="HeaderLinkActive"
+          class="link link-hover text-md md:text-lg"
+          navigate={~p"/products"}
+        >
           <%= gettext("Productos") %>
-        </.link>
+        </.fast_link>
       </div>
 
       <div class="block md:hidden">
@@ -23,18 +28,26 @@
                   ) %>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <.link class="link text-lg" navigate="/">
+                  <.fast_link
+                    id="c73ae74b-8843-4200-bea9-e6ed88cdc320"
+                    class="link text-lg"
+                    navigate="/"
+                  >
                     <%= gettext("Home") %>
-                  </.link>
-                  <.link class="link text-lg" navigate={~p"/products"}>
+                  </.fast_link>
+                  <.fast_link
+                    id="aa2f9cf7-71c9-4cad-a49c-1dadc0fba7af"
+                    class="link text-lg"
+                    navigate={~p"/products"}
+                  >
                     <%= gettext("Productos") %>
-                  </.link>
+                  </.fast_link>
                 </div>
               </div>
             </div>
           </.drawer>
           <.button
-            phx-click={show_drawer(:left, "menu-modal")}
+            qphx-mousedown={show_drawer(:left, "menu-modal")}
             class="btn btn-square rounded-md btn-md"
           >
             <.icon name="hero-bars-3" class="h-4 w-4" />
@@ -52,9 +65,14 @@
         ) %>
       </div>
 
-      <.link navigate="/" class="flex justify-center md:hidden">
-        <img src={~p"/images/logo-dark.png"} width="120" />
-      </.link>
+      <.fast_link
+        id="2d841d9b-7ec6-46a1-9fc9-aa080d2dc683"
+        navigate="/"
+        class="flex justify-center md:hidden"
+        aria-label="Home"
+      >
+        <img src={~p"/images/logo-dark.avif"} width="120" height="38" alt="ACG Micro" />
+      </.fast_link>
     </div>
 
     <%!-- RIGHT BLOCK --%>
@@ -74,7 +92,7 @@
     <%!-- MAIN FOOTER --%>
     <div class="flex flex-row gap-6 justify-between">
       <div class="flex flex-col gap-4">
-        <img src={~p"/images/logo-dark.png"} width="100" />
+        <img src={~p"/images/logo-dark.avif"} width="100" height="32" alt="ACG Micro" />
         <p class="text-md">
           <%= gettext("Proveedor de piezas y componentes especializados en Apple.") %>
         </p>
@@ -85,15 +103,27 @@
       </div>
 
       <div class="flex flex-col gap-4">
-        <.link class="link link-hover text-md" navigate="/">
+        <.fast_link
+          id="9d4eef5a-4042-4ca3-823b-99266c6f667a"
+          class="link link-hover text-md"
+          navigate="/"
+        >
           <%= gettext("Home") %>
-        </.link>
-        <.link class="link link-hover text-md" navigate={~p"/products"}>
+        </.fast_link>
+        <.fast_link
+          id="586efa77-d336-4fc7-8be7-cd30e293ac46"
+          class="link link-hover text-md"
+          navigate={~p"/products"}
+        >
           <%= gettext("Productos") %>
-        </.link>
-        <.link class="link link-hover text-md" navigate={~p"/about"}>
+        </.fast_link>
+        <.fast_link
+          id="96763684-5473-4fdb-8828-0e9e68dc9a90"
+          class="link link-hover text-md"
+          navigate={~p"/about"}
+        >
           <%= gettext("Acerca de") %>
-        </.link>
+        </.fast_link>
       </div>
     </div>
 
@@ -112,7 +142,13 @@
           target="_blank"
           class="font-semibold hover:text-gray-700"
         >
-          <img class="inline relative -top-0.5" src={~p"/images/elixir.svg"} width="16" /><%= gettext("Elixir") %>
+          <img
+            class="inline relative -top-0.5"
+            src={~p"/images/elixir.svg"}
+            width="16"
+            height="16"
+            alt="Elixir"
+          /><%= gettext("Elixir") %>
         </a>
       </div>
     </div>

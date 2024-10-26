@@ -88,6 +88,11 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
     Map.put(params, "images", files)
   end
 
+  # Silence Dialyzer due to improper detection on Image.write
+  @dialyzer {:nowarn_function,
+             [
+               consume_upload: 4
+             ]}
   defp consume_upload(_socket, _item, %{path: path} = _meta, entry) do
     file_name = file_name(entry)
     base_path = Path.join([:code.priv_dir(:phoenix_demo), "static", upload_dir()])
@@ -112,7 +117,11 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
       end
     end)
     |> Image.remove_metadata!()
-    |> Image.write!(dest)
+    |> Image.write!(dest,
+      quality: 60,
+      webp: [minimize_file_size: true, effort: 10],
+      heif: [minimize_file_size: true, effort: 8]
+    )
 
     {:ok, file_url(file_name)}
   end
@@ -130,8 +139,8 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
   end
 
   defp file_name(entry) do
-    [ext | _] = MIME.extensions(entry.client_type)
-    "#{entry.uuid}.#{ext}"
+    # Always use webp
+    "#{entry.uuid}.avif"
   end
 
   defp upload_dir, do: Path.join(["uploads", "product", "images"])

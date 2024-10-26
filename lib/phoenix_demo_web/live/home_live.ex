@@ -7,6 +7,8 @@ defmodule PhoenixDemoWeb.HomeLive do
 
   import PhoenixDemoWeb.Home.AdvantagesCards
 
+  import PhoenixDemoWeb.CustomComponents
+
   use Gettext, backend: PhoenixDemoWeb.Gettext
 
   @impl true
@@ -15,7 +17,6 @@ defmodule PhoenixDemoWeb.HomeLive do
     random_products = Products.get_random_sample_products(5)
 
     socket = assign(socket, :random_products, random_products)
-
     {:ok, socket}
   end
 
@@ -23,7 +24,7 @@ defmodule PhoenixDemoWeb.HomeLive do
   def render(assigns) do
     ~H"""
     <div class="flex flex-col gap-48">
-      <div class="absolute w-[100vw] min-h-[64px] bg-success left-0 top-[73px] py-2">
+      <div class="absolute w-[100vw] min-h-[64px] bg-green-800 left-0 top-[73px] py-2">
         <div
           id="cycle-advtanges-cont"
           phx-hook="CycleAdvantages"
@@ -73,20 +74,19 @@ defmodule PhoenixDemoWeb.HomeLive do
             ) %>
           </p>
           <div class="flex flex-row gap-4">
-            <.link class="btn btn-primary" navigate={~p"/products"}>
+            <.fast_link class="btn btn-primary" navigate={~p"/products"} id="prod-link-hero">
               <%= gettext("Ver Productos") %>
-            </.link>
-            <.link class="btn btn-outline" navigate={~p"/about"}>
-              <%= gettext("Información") %>
-            </.link>
+            </.fast_link>
           </div>
         </div>
 
         <figure class="relative w-full lg:w-[60%] max-w-[600px] flex-grow-0 flex-shrink-0">
           <img
-            src={~p"/images/macbook-repair.jpg"}
+            src={~p"/images/macbook-repair.avif"}
             alt={gettext("Hero image")}
             class="w-full object-contain rounded-lg"
+            width="800"
+            height="533"
           />
         </figure>
       </section>
@@ -105,6 +105,8 @@ defmodule PhoenixDemoWeb.HomeLive do
                   src={~p"/images/return-box.svg"}
                   alt={gettext("Return policy")}
                   class="w-20 h-20"
+                  width="80"
+                  height="80"
                 />
                 <p class="text-2xl font-bold"><%= gettext("Devoluciones") %></p>
               </div>
@@ -129,6 +131,8 @@ defmodule PhoenixDemoWeb.HomeLive do
                   src={~p"/images/shipping.svg"}
                   alt={gettext("Shipping policy")}
                   class="w-20 h-20"
+                  width="80"
+                  height="80"
                 />
                 <p class="text-2xl font-bold"><%= gettext("Envíos") %></p>
               </div>

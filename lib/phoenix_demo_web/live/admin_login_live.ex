@@ -1,5 +1,6 @@
 defmodule PhoenixDemoWeb.AdminLoginLive do
   use PhoenixDemoWeb, :live_view
+  import PhoenixDemoWeb.CustomComponents
 
   alias PhoenixDemo.Accounts
 
@@ -11,9 +12,13 @@ defmodule PhoenixDemoWeb.AdminLoginLive do
         <:subtitle>
           <%= if @exists? == false do %>
             Don't have an account?
-            <.link navigate={~p"/admins/register"} class="font-semibold text-brand hover:underline">
+            <.fast_link
+              id="d24265bb-0d93-42ea-85f4-755e3bf4fcfa"
+              navigate={~p"/admins/register"}
+              class="font-semibold text-brand hover:underline"
+            >
               Sign up
-            </.link>
+            </.fast_link>
             for an account now.
           <% end %>
         </:subtitle>
@@ -37,9 +42,13 @@ defmodule PhoenixDemoWeb.AdminLoginLive do
 
         <:actions>
           <.input field={@form[:remember_me]} type="checkbox" label="Keep me logged in" />
-          <.link href={~p"/admins/reset_password"} class="text-sm font-semibold">
+          <.fast_link
+            id="d66278b9-b04e-449b-a253-0ca60a6a08e3"
+            href={~p"/admins/reset_password"}
+            class="text-sm font-semibold"
+          >
             Forgot your password?
-          </.link>
+          </.fast_link>
         </:actions>
         <:actions>
           <.button phx-disable-with="Logging in..." class="w-full btn btn-primary">

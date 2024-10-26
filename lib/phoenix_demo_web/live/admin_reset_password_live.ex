@@ -1,5 +1,6 @@
 defmodule PhoenixDemoWeb.AdminResetPasswordLive do
   use PhoenixDemoWeb, :live_view
+  import PhoenixDemoWeb.CustomComponents
 
   alias PhoenixDemo.Accounts
 
@@ -31,8 +32,13 @@ defmodule PhoenixDemoWeb.AdminResetPasswordLive do
       </.simple_form>
 
       <p class="text-center text-sm mt-4">
-        <.link href={~p"/admins/register"}>Register</.link>
-        | <.link href={~p"/admins/log_in"}>Log in</.link>
+        <.fast_link id="9f9e333c-d882-41ef-ad98-33b545c0db5c" href={~p"/admins/register"}>
+          Register
+        </.fast_link>
+        |
+        <.fast_link id="e2e3812b-8aa4-449a-a11f-32bf4df8968a" href={~p"/admins/log_in"}>
+          Log in
+        </.fast_link>
       </p>
     </div>
     """

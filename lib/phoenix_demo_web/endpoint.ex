@@ -25,7 +25,7 @@ defmodule PhoenixDemoWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :phoenix_demo,
-    gzip: false,
+    gzip: true,
     only: PhoenixDemoWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the

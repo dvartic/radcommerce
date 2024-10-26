@@ -1,6 +1,7 @@
 defmodule PhoenixDemoWeb.CustomComponents do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
+  import Phoenix.Controller
 
   alias Phoenix.LiveView.JS
 
@@ -44,12 +45,12 @@ defmodule PhoenixDemoWeb.CustomComponents do
               id={"#{@id}-container"}
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
               phx-key="escape"
-              phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
+              qphx-mousedown-away={JS.exec("data-cancel", to: "##{@id}")}
               class="relative hidden bg-white p-4 sm:p-8 h-[100dvh]"
             >
               <div class="absolute top-6 right-5">
                 <button
-                  phx-click={JS.exec("data-cancel", to: "##{@id}")}
+                  qphx-mousedown={JS.exec("data-cancel", to: "##{@id}")}
                   type="button"
                   class="-m-3 flex-none p-3 opacity-20 hover:opacity-40"
                   aria-label="close"
@@ -88,7 +89,6 @@ defmodule PhoenixDemoWeb.CustomComponents do
     |> JS.add_class("overflow-hidden", to: "body")
   end
 
-  @spec show_drawer(JS, :right | :left, String.t()) :: JS
   def hide_drawer(js \\ %JS{}, direction, id) do
     translate_to = if direction == :right, do: "translate-x-full", else: "-translate-x-full"
 
@@ -105,5 +105,64 @@ defmodule PhoenixDemoWeb.CustomComponents do
     |> JS.hide(to: "##{id}", transition: {"block", "block", "hidden"})
     |> JS.remove_class("overflow-hidden", to: "body")
     |> JS.pop_focus()
+  end
+
+  attr :id, :string, required: true
+  attr :navigate, :string
+  attr :patch, :string
+  attr :href, :any
+  attr :replace, :boolean, default: false
+  attr :method, :string, default: "get"
+  attr :csrf_token, :any, default: true
+  attr :rest, :global, include: ~w(download hreflang referrerpolicy rel target type)
+  slot :inner_block, required: true
+
+  def fast_link(%{navigate: to} = assigns) when is_binary(to) do
+    ~H"""
+    <a
+      id={@id}
+      href={@navigate}
+      data-phx-link="redirect"
+      data-phx-link-state={if @replace, do: "replace", else: "push"}
+      phx-hook="FastLink"
+      {@rest}
+    >
+      <%= render_slot(@inner_block) %>
+    </a>
+    """
+  end
+
+  def fast_link(%{patch: to} = assigns) when is_binary(to) do
+    ~H"""
+    <a
+      id={@id}
+      href={@patch}
+      data-phx-link="patch"
+      data-phx-link-state={if @replace, do: "replace", else: "push"}
+      phx-hook="FastLink"
+      {@rest}
+    >
+      <%= render_slot(@inner_block) %>
+    </a>
+    """
+  end
+
+  def fast_link(%{href: href} = assigns) when href != "#" and not is_nil(href) do
+    href = Phoenix.LiveView.Utils.valid_destination!(href, "<.link>")
+    assigns = assign(assigns, :href, href)
+
+    ~H"""
+    <a
+      id={@id}
+      href={@href}
+      data-method={if @method != "get", do: @method}
+      data-csrf={if @method != "get", do: get_csrf_token()}
+      data-to={if @method != "get", do: @href}
+      phx-hook="FastLink"
+      {@rest}
+    >
+      <%= render_slot(@inner_block) %>
+    </a>
+    """
   end
 end

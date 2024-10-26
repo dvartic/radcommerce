@@ -1,6 +1,6 @@
 defmodule PhoenixDemoWeb.AdminConfirmationLive do
   use PhoenixDemoWeb, :live_view
-
+  import PhoenixDemoWeb.CustomComponents
   alias PhoenixDemo.Accounts
 
   def render(%{live_action: :edit} = assigns) do
@@ -16,8 +16,13 @@ defmodule PhoenixDemoWeb.AdminConfirmationLive do
       </.simple_form>
 
       <p class="text-center mt-4">
-        <.link href={~p"/admins/register"}>Register</.link>
-        | <.link href={~p"/admins/log_in"}>Log in</.link>
+        <.fast_link id="6d275a6b-dde6-4ef6-aaf5-50ad0fc86036" href={~p"/admins/register"}>
+          Register
+        </.fast_link>
+        |
+        <.fast_link id="dbfb78a5-31ca-4088-b675-2ef54648fc52" href={~p"/admins/log_in"}>
+          Log in
+        </.fast_link>
       </p>
     </div>
     """

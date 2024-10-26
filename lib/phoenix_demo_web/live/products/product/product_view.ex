@@ -78,7 +78,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
             </div>
           </.modal>
           <.button
-            phx-click={show_modal("max-image-modal")}
+            qphx-mousedown={show_modal("max-image-modal")}
             class="absolute right-0 z-10 btn btn-circle btn-sm"
             type="button"
           >
@@ -91,7 +91,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
                 <img
                   src={img_src}
                   alt="Product image"
-                  class="w-full max-h-[300px] sm:max-h-[500px] object-contain"
+                  class="w-full aspect-square max-h-[300px] sm:max-h-[500px] object-contain"
                 />
               </div>
             <% end %>
@@ -165,7 +165,11 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
             <% end %>
           </div>
           <%!-- ACTION --%>
-          <button class="btn btn-block btn-primary btn-lg phx-submit-loading:opacity-75">
+          <button
+            id="88f27b4f-1b0a-4854-9651-843130e40f82"
+            class="btn btn-block btn-primary btn-lg phx-submit-loading:opacity-75"
+            phx-hook="FormSubmitOnMousedown"
+          >
             <.icon name="hero-plus" class="h-6 w-6" /> <%= gettext("Añadir a carrito") %>
           </button>
         </div>

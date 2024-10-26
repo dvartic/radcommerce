@@ -58,7 +58,7 @@ defmodule PhoenixDemoWeb.Products.ProductsLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <section class="flex flex-row gap-10">
+    <section class="flex flex-col sm:flex-row gap-10">
       <.product_categories categories={@categories} selected_cat_id={@selected_cat_id} />
       <div class="grid grid-flow-row gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
         <%= for product <- @products do %>
