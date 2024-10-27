@@ -29,7 +29,8 @@ export const SwiperProductPage = {
     const prevButton = document.querySelector(".swiper-button-prev");
 
     if (nextButton) {
-      nextButton.addEventListener("mousedown", () => {
+      nextButton.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return;
         swiper.slideNext();
       });
       nextButton.addEventListener(
@@ -43,7 +44,8 @@ export const SwiperProductPage = {
     }
 
     if (prevButton) {
-      prevButton.addEventListener("mousedown", () => {
+      prevButton.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return;
         swiper.slidePrev();
       });
       prevButton.addEventListener(
@@ -80,8 +82,9 @@ export const SwiperProductPage = {
     };
 
     thumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener("mousedown", (event) => {
-        const index = parseInt(event.currentTarget.dataset.index, 10);
+      thumbnail.addEventListener("mousedown", (e) => {
+        if (e.button !== 0) return;
+        const index = parseInt(e.currentTarget.dataset.index, 10);
         swiper.slideTo(index);
       });
     });

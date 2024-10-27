@@ -60,13 +60,10 @@ defmodule PhoenixDemo.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
-      # Backpex
+      # CUSTOM
       {:backpex, "~> 0.7.1"},
-      # Mdex Markdown
       {:mdex, "~> 0.1"},
-      # Stripe
       {:stripity_stripe, "~> 3.2"},
-      # Dotenvy
       {:dotenvy, "~> 0.8.0"},
       {:image, "~> 0.54.4"}
     ]

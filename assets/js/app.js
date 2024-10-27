@@ -89,7 +89,10 @@ window.addEventListener("phx:page-loading-stop", (_info) => topbar.hide());
 
 // Custom events support. Use qphx-{{event}} to execute a custom event not provided natively by LiveView.
 window.addEventListener("mousedown", (e) => {
-  // if the event's target has the qphx-mouseover attribute,
+  // Check if it's a left click (button property is 0 for left click)
+  if (e.button !== 0) return;
+
+  // if the event's target has the qphx-mousedown attribute,
   // execute the commands on that element
   const element = e.target.closest("[qphx-mousedown]");
   if (element) {
