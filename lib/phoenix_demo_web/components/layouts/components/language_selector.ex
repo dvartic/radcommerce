@@ -27,7 +27,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.LanguageSelector do
     ~H"""
     <%!-- FORM HAS A ONCHANGE EVENT LISTENER ATTACHED --%>
     <form id="change_language_form" phx-hook="ChangeLanguageSelector">
-      <select name="locale" class="select select-info w-36 select-sm">
+      <select name="locale" class="select select-info w-36 select-sm" aria-label="Change language">
         <%= for locale <- @locale_list do %>
           <option selected={locale.value == @current_locale} value={locale.value}>
             <%= locale.text %>
