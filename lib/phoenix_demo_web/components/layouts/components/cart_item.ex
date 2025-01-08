@@ -1,12 +1,14 @@
 defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
+  import PhoenixDemo.ResolveTranslations
   alias Phoenix.LiveView.JS
 
   alias PhoenixDemo.Schemas.CartItem
   alias PhoenixDemoWeb.Admin.ProductsLive
 
   attr :cart_item, CartItem, required: true
+  attr :locale, :string, required: true
 
   def cart_item_card(assigns) do
     # Image Src
@@ -27,7 +29,14 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
 
     # Product Name
     assigns =
-      assign(assigns, :product_name, Map.get(assigns.cart_item.product || %{name: "N/A"}, :name))
+      assign(
+        assigns,
+        :product_name,
+        resolve_text_content(
+          Map.get(assigns.cart_item.product || %{name: "N/A"}, :name),
+          assigns.locale
+        )
+      )
 
     # Product Price
     assigns =
@@ -42,7 +51,8 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
       if assigns.cart_item.properties == nil do
         nil
       else
-        with {:ok, value} <- Jason.decode(assigns.cart_item.properties) do
+        with {:ok, value} <-
+               Jason.decode(resolve_text_content(assigns.cart_item.properties, assigns.locale)) do
           Map.values(value)
         else
           {:error, _reason} -> nil

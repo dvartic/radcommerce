@@ -4,7 +4,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   on_mount PhoenixDemoWeb.RestoreLocale
 
   import PhoenixDemoWeb.CustomComponents
-
+  import PhoenixDemo.ResolveTranslations
   alias PhoenixDemo.Carts
 
   alias PhoenixDemoWeb.PutCartCookie
@@ -19,6 +19,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   def mount(_params, session, socket) do
     cart_id = session[PutCartCookie.cart_id_cookie_name()]
     domain = session["domain"]
+    locale = Map.get(session, "locale", "es")
 
     # Subscribe to cart channel
     PhoenixDemoWeb.Endpoint.subscribe("cart:" <> Integer.to_string(cart_id))
@@ -31,7 +32,8 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
      |> assign(cart: cart)
      |> assign(stripe_error: nil)
      |> assign(:is_loading, false)
-     |> assign(:domain, domain)}
+     |> assign(:domain, domain)
+     |> assign(:locale, locale)}
   end
 
   @impl true
@@ -147,9 +149,11 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
                 currency: "eur",
                 unit_amount: cart_item.product.price.amount,
                 product_data: %{
-                  name: cart_item.product.name,
-                  description: cart_item.product.description,
-                  metadata: Jason.decode!(cart_item.properties),
+                  name: resolve_text_content(cart_item.product.name, current_locale),
+                  description:
+                    resolve_text_content(cart_item.product.description, current_locale),
+                  metadata:
+                    Jason.decode!(resolve_text_content(cart_item.properties, current_locale)),
                   images:
                     Map.get(cart_item.product || %{images: []}, :images)
                     |> Enum.map(fn image ->
@@ -230,7 +234,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
           <%!-- CART ITEMS --%>
           <div class="max-h-full h-full overflow-auto flex flex-col gap-6 sm:gap-10 px-2">
             <%= for cart_item <- @cart.items do %>
-              <.cart_item_card cart_item={cart_item} />
+              <.cart_item_card cart_item={cart_item} locale={@locale} />
             <% end %>
           </div>
 

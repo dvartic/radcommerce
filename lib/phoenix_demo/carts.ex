@@ -15,7 +15,7 @@ defmodule PhoenixDemo.Carts do
 
   def get_cart_with_products(id) do
     Repo.get(Cart, id)
-    |> Repo.preload(items: :product)
+    |> Repo.preload(items: [product: [:name, :description, :properties]])
   end
 
   def add_to_cart(id, product_id, properties_str) do
@@ -49,7 +49,7 @@ defmodule PhoenixDemo.Carts do
         |> Ecto.build_assoc(:items)
         |> CartItem.changeset(%{quantity: 1, properties: properties_str, product_id: product_id})
         |> Repo.insert!()
-        |> Repo.preload(:product)
+        |> Repo.preload(product: [:name, :description, :properties])
 
       # Add cart_item to existing cart to return
       %{cart | :items => cart.items ++ [new_cart_item]}
@@ -67,7 +67,7 @@ defmodule PhoenixDemo.Carts do
     cart_item
     |> CartItem.changeset(%{quantity: quantity})
     |> Repo.update!()
-    |> Repo.preload(:product)
+    |> Repo.preload(product: [:name, :description, :properties])
   end
 
   def clear_cart(id) do

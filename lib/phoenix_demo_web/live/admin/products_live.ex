@@ -1,13 +1,18 @@
 defmodule PhoenixDemoWeb.Admin.ProductsLive do
   use Backpex.LiveResource,
+    adapter: Backpex.Adapters.Ecto,
+    adapter_config: [
+      schema: PhoenixDemo.Schemas.Product,
+      repo: PhoenixDemo.Repo,
+      update_changeset: &PhoenixDemo.Schemas.Product.update_changeset/3,
+      create_changeset: &PhoenixDemo.Schemas.Product.create_changeset/3
+    ],
     layout: {PhoenixDemoWeb.Layouts, :admin},
-    schema: PhoenixDemo.Schemas.Product,
-    repo: PhoenixDemo.Repo,
-    update_changeset: &PhoenixDemo.Schemas.Product.update_changeset/3,
-    create_changeset: &PhoenixDemo.Schemas.Product.create_changeset/3,
-    pubsub: PhoenixDemo.PubSub,
-    topic: "products",
-    event_prefix: "product_"
+    pubsub: [
+      name: PhoenixDemo.PubSub,
+      topic: "products",
+      event_prefix: "product_"
+    ]
 
   @impl Backpex.LiveResource
   def singular_name, do: "Product"
@@ -19,20 +24,26 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
   def fields do
     [
       name: %{
-        module: Backpex.Fields.Text,
-        label: "Name"
+        module: Backpex.Fields.BelongsTo,
+        label: "Name",
+        display_field: :original_text,
+        live_resource: PhoenixDemoWeb.Admin.TextContentsLive
       },
       price: %{
         module: Backpex.Fields.Number,
         label: "Price"
       },
       description: %{
-        module: Backpex.Fields.Textarea,
-        label: "Description"
+        module: Backpex.Fields.BelongsTo,
+        label: "Description",
+        display_field: :original_text,
+        live_resource: PhoenixDemoWeb.Admin.TextContentsLive
       },
       properties: %{
-        module: Backpex.Fields.Text,
-        label: "Properties"
+        module: Backpex.Fields.BelongsTo,
+        label: "Properties",
+        display_field: :original_text,
+        live_resource: PhoenixDemoWeb.Admin.TextContentsLive
       },
       categories: %{
         module: Backpex.Fields.HasMany,
@@ -64,6 +75,12 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
         end,
         except: [:index, :resource_action],
         align: :center
+      },
+      example_text: %{
+        module: Backpex.Fields.BelongsTo,
+        label: "Example Text",
+        display_field: :original_text,
+        live_resource: PhoenixDemoWeb.Admin.TextContentsLive
       }
     ]
   end

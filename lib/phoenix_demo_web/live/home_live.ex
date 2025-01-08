@@ -12,11 +12,17 @@ defmodule PhoenixDemoWeb.HomeLive do
   use Gettext, backend: PhoenixDemoWeb.Gettext
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
+    locale = Map.get(session, :locale, "es")
+
     # Fetch random sample of products
     random_products = Products.get_random_sample_products(5)
 
-    socket = assign(socket, :random_products, random_products)
+    socket =
+      socket
+      |> assign(:locale, locale)
+      |> assign(:random_products, random_products)
+
     {:ok, socket}
   end
 
@@ -92,7 +98,7 @@ defmodule PhoenixDemoWeb.HomeLive do
       </section>
 
       <%!-- PRODUCT SHOWCASE --%>
-      <.product_showcase products={@random_products} />
+      <.product_showcase products={@random_products} locale={@locale} />
 
       <%!-- BENEFITS --%>
       <section class="w-full flex flex-col items-center gap-12">

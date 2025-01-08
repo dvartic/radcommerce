@@ -1,6 +1,7 @@
 defmodule PhoenixDemoWeb.Products.Product.ProductView do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
+  import PhoenixDemo.ResolveTranslations
   use Gettext, backend: PhoenixDemoWeb.Gettext
 
   # Product Schema
@@ -10,6 +11,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
 
   attr :product, Product, required: true
   attr :form, Phoenix.HTML.Form, required: true
+  attr :locale, :string, required: true
 
   def product_view(assigns) do
     # Image Src
@@ -30,7 +32,8 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       if assigns.product.properties == nil do
         nil
       else
-        with {:ok, value} <- Jason.decode(assigns.product.properties) do
+        with {:ok, value} <-
+               Jason.decode(resolve_text_content(assigns.product.properties, assigns.locale)) do
           value
         else
           {:error, _reason} -> nil
@@ -46,10 +49,14 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
 
     # Product description markdown processing
     markdown_desc =
-      MDEx.to_html(assigns.product.description || "")
+      MDEx.to_html(resolve_text_content(assigns.product.description, assigns.locale) || "")
       |> Phoenix.HTML.raw()
 
     assigns = assign(assigns, :markdown_desc, markdown_desc)
+
+    # Product name
+    name = resolve_text_content(assigns.product.name, assigns.locale)
+    assigns = assign(assigns, :product_name, name)
 
     ~H"""
     <.form
@@ -120,7 +127,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       <div class="flex flex-col gap-8">
         <%!-- TITLE AND PRICE --%>
         <div class="flex flex-col gap-6 pb-6 border-b">
-          <h1 class="font-bold text-4xl"><%= @product.name %></h1>
+          <h1 class="font-bold text-4xl"><%= @product_name %></h1>
           <div class="font-mono font-medium text-xl"><%= @product.price %></div>
         </div>
         <%!-- OPTIONS --%>

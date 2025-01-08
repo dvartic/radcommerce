@@ -11,7 +11,14 @@ defmodule PhoenixDemo.Products do
 
   def list_products() do
     query =
-      from(products in Product, order_by: [desc: :inserted_at])
+      from(products in Product,
+        order_by: [desc: :inserted_at],
+        preload: [
+          description: [translations: :language],
+          properties: [translations: :language],
+          name: [translations: :language]
+        ]
+      )
 
     Repo.all(query)
   end
@@ -22,7 +29,12 @@ defmodule PhoenixDemo.Products do
         order_by: [desc: :inserted_at],
         join: cat in assoc(products, :categories),
         where: cat.id == ^cat_id,
-        distinct: products.id
+        distinct: products.id,
+        preload: [
+          description: [translations: :language],
+          properties: [translations: :language],
+          name: [translations: :language]
+        ]
       )
 
     Repo.all(query)
@@ -33,7 +45,15 @@ defmodule PhoenixDemo.Products do
 
     query =
       from products in Product,
-        where: ilike(products.name, ^ilike_query)
+        join: name in assoc(products, :name),
+        left_join: translations in assoc(name, :translations),
+        where: ilike(name.original_text, ^ilike_query) or ilike(translations.translated_text, ^ilike_query),
+        distinct: products.id,
+        preload: [
+          description: [translations: :language],
+          properties: [translations: :language],
+          name: [translations: :language]
+        ]
 
     Repo.all(query)
   end
@@ -42,12 +62,25 @@ defmodule PhoenixDemo.Products do
     query =
       from Product,
         order_by: fragment("RANDOM()"),
-        limit: ^limit
+        limit: ^limit,
+        preload: [
+          description: [translations: :language],
+          properties: [translations: :language],
+          name: [translations: :language]
+        ]
 
     Repo.all(query)
   end
 
   def get_product(id) do
-    Repo.get(Product, id)
+    Repo.one(
+      from product in Product,
+        where: product.id == ^id,
+        preload: [
+          name: [translations: :language],
+          description: [translations: :language],
+          properties: [translations: :language]
+        ]
+    )
   end
 end

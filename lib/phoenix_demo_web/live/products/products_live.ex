@@ -10,7 +10,9 @@ defmodule PhoenixDemoWeb.Products.ProductsLive do
   import PhoenixDemoWeb.Products.CategoriesPanel
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
+    locale = Map.get(session, "locale", "es")
+
     # Pre-render item list
     product_list = Products.list_products()
     product_categories = Categories.list_categories()
@@ -19,7 +21,8 @@ defmodule PhoenixDemoWeb.Products.ProductsLive do
      socket
      |> assign(products: product_list)
      |> assign(categories: product_categories)
-     |> assign(selected_cat_id: nil)}
+     |> assign(selected_cat_id: nil)
+     |> assign(:locale, locale)}
   end
 
   @impl true
@@ -62,7 +65,7 @@ defmodule PhoenixDemoWeb.Products.ProductsLive do
       <.product_categories categories={@categories} selected_cat_id={@selected_cat_id} />
       <div class="grid grid-flow-row gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
         <%= for product <- @products do %>
-          <.product_card product={product} />
+          <.product_card product={product} locale={@locale} />
         <% end %>
       </div>
     </section>

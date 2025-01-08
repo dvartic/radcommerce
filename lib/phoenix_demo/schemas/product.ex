@@ -4,13 +4,17 @@ defmodule PhoenixDemo.Schemas.Product do
   import Ecto.Changeset
 
   alias PhoenixDemo.Schemas.Categories
+  alias PhoenixDemo.Schemas.TextContent
 
   schema "products" do
-    field :name, :string
-    field :price, Backpex.Ecto.Amount.Type, currency: :EUR, opts: [separator: ".", delimiter: ","]
-    field :description, :string
-    field :properties, :string
+    belongs_to :name, TextContent
+    belongs_to :description, TextContent
+    belongs_to :properties, TextContent
     field :images, {:array, :string}
+    field :price, Backpex.Ecto.Amount.Type, currency: :EUR, opts: [separator: ".", delimiter: ","]
+
+    # Translated fields
+    belongs_to :example_text, TextContent
 
     timestamps()
 
@@ -20,9 +24,13 @@ defmodule PhoenixDemo.Schemas.Product do
 
   def changeset(product, attrs \\ %{}) do
     product
-    |> cast(attrs, [:name, :price, :description, :properties, :images])
-    |> validate_required([:name, :price, :description])
+    |> cast(attrs, [:name_id, :price, :description_id, :images])
+    |> validate_required([:name_id, :price, :description_id])
     |> validate_length(:images, max: 20)
+    |> foreign_key_constraint(:example_text_id)
+    |> foreign_key_constraint(:name_id)
+    |> foreign_key_constraint(:description_id)
+    |> foreign_key_constraint(:properties_id)
   end
 
   def update_changeset(product, attrs, _metadata \\ []) do

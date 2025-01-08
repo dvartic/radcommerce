@@ -10,12 +10,13 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
 
   # Custom components
   import PhoenixDemoWeb.Products.Product.ProductView
+  import PhoenixDemo.ResolveTranslations
 
-  defp get_types(properties) do
+  defp get_types(properties, locale) do
     if properties == nil do
       nil
     else
-      with {:ok, value} <- Jason.decode(properties) do
+      with {:ok, value} <- Jason.decode(resolve_text_content(properties, locale)) do
         value
       else
         {:error, _reason} -> nil
@@ -25,6 +26,8 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
 
   @impl true
   def mount(params, session, socket) do
+    locale = Map.get(session, "locale", "es")
+
     # Read product info from params
     %{"id" => product_id} = params
     product = Products.get_product(product_id)
@@ -36,7 +39,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
     socket = assign(socket, cart: cart)
 
     # Custom Cart Item Form
-    types = get_types(product.properties)
+    types = get_types(product.properties, locale)
 
     types_map =
       if types == nil do
@@ -47,6 +50,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
       end
 
     socket = assign(socket, form: to_form(types_map))
+    socket = assign(socket, locale: locale)
 
     {:ok, socket}
   end
@@ -63,7 +67,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
     cart = socket.assigns.cart
     cart_id = cart.id
     product_id = product.id
-    types = get_types(product.properties)
+    types = get_types(product.properties, socket.assigns.locale)
 
     valid? =
       if types == nil do
@@ -89,6 +93,8 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
 
       {:noreply,
        socket
+       # Remove possible errors by resetting the form
+       |> assign(form: to_form(values))
        |> push_event("js-exec", %{
          to: "#confirm-modal",
          attr: "data-show-drawer"
@@ -108,7 +114,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductLive do
   def render(assigns) do
     ~H"""
     <section class="flex flex-col gap-16">
-      <.product_view product={@product} form={@form} />
+      <.product_view product={@product} form={@form} locale={@locale} />
     </section>
     """
   end
