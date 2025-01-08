@@ -13,7 +13,7 @@ defmodule PhoenixDemoWeb.HomeLive do
 
   @impl true
   def mount(_params, session, socket) do
-    locale = Map.get(session, :locale, "es")
+    locale = Map.get(session, "locale", "es")
 
     # Fetch random sample of products
     random_products = Products.get_random_sample_products(5)

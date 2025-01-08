@@ -66,7 +66,6 @@ defmodule PhoenixDemoWeb.Router do
       on_mount: [Backpex.InitAssigns, {PhoenixDemoWeb.AdminAuth, :ensure_authenticated}] do
       live_resources("/products", Admin.ProductsLive)
       live_resources("/categories", Admin.CategoriesLive)
-      live_resources("/legal-pages", Admin.LegalPagesLive)
       live_resources("/text-contents", Admin.TextContentsLive)
       live_resources("/languages", Admin.LanguagesLive)
       live_resources("/translations", Admin.TranslationsLive)
