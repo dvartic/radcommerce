@@ -9,6 +9,10 @@ defmodule PhoenixDemo.Repo.Migrations.AddProductTranslations do
       add :properties_id, references(:text_contents)
     end
 
+    alter table(:text_contents) do
+      modify :original_text, :text
+    end
+
     # Name translations
     execute """
     INSERT INTO text_contents (original_text, inserted_at, updated_at)
