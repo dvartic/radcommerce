@@ -30,7 +30,7 @@ defmodule PhoenixDemoWeb.Admin.TextContentsLive do
         live_resource: PhoenixDemoWeb.Admin.TranslationsLive
       },
       original_text: %{
-        module: Backpex.Fields.Text,
+        module: Backpex.Fields.Textarea,
         label: "Original Text"
       }
     ]

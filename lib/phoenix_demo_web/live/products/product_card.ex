@@ -44,9 +44,9 @@ defmodule PhoenixDemoWeb.Products.ProductCard do
       </.fast_link>
 
       <div class="card-body">
-        <h2 class="card-title line-clamp-3 min-h-[5.25rem]"><%= @product_name %></h2>
+        <h2 class="card-title line-clamp-3 min-h-[5.25rem]">{@product_name}</h2>
         <div class="card-actions flex flex-row justify-between items-center mt-4">
-          <div class="font-mono font-medium text-lg"><%= @product.price %></div>
+          <div class="font-mono font-medium text-lg">{@product.price}</div>
         </div>
       </div>
     </div>

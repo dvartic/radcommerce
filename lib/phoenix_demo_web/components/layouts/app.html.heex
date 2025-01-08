@@ -12,7 +12,7 @@
           class="link link-hover text-md md:text-lg"
           navigate={~p"/products"}
         >
-          <%= gettext("Productos") %>
+          {gettext("Productos")}
         </.fast_link>
       </div>
 
@@ -22,10 +22,10 @@
             <div class="w-full h-full flex flex-col gap-6 sm:gap-10 pt-16">
               <div class="w-full max-h-full h-full overflow-auto flex flex-col gap-14 px-2">
                 <div class="w-full block md:hidden py-2">
-                  <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
+                  {live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
                     id: "search_products_mobile",
                     session: %{"query_params" => @params}
-                  ) %>
+                  )}
                 </div>
                 <div class="flex flex-col gap-6">
                   <.fast_link
@@ -33,14 +33,14 @@
                     class="link text-lg"
                     navigate="/"
                   >
-                    <%= gettext("Home") %>
+                    {gettext("Home")}
                   </.fast_link>
                   <.fast_link
                     id="aa2f9cf7-71c9-4cad-a49c-1dadc0fba7af"
                     class="link text-lg"
                     navigate={~p"/products"}
                   >
-                    <%= gettext("Productos") %>
+                    {gettext("Productos")}
                   </.fast_link>
                 </div>
               </div>
@@ -59,10 +59,10 @@
     <%!-- MIDDLE BLOCK --%>
     <div>
       <div class="hidden md:block">
-        <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
+        {live_render(@socket, PhoenixDemoWeb.Layouts.Components.SearchProducts,
           id: "search_products",
           session: %{"query_params" => @params}
-        ) %>
+        )}
       </div>
 
       <.fast_link
@@ -77,14 +77,14 @@
 
     <%!-- RIGHT BLOCK --%>
     <div class="justify-self-end">
-      <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.CartModal, id: "cart_modal") %>
+      {live_render(@socket, PhoenixDemoWeb.Layouts.Components.CartModal, id: "cart_modal")}
     </div>
   </div>
 </header>
 <main class="px-4 py-20 sm:px-6 lg:px-8">
   <div class="container mx-auto">
     <.flash_group flash={@flash} />
-    <%= @inner_content %>
+    {@inner_content}
   </div>
 </main>
 <footer class="p-4 sm:p-6 lg:p-8 mx-auto max-w-[1920px]">
@@ -94,12 +94,12 @@
       <div class="flex flex-col gap-4">
         <img src={~p"/images/logo-dark.avif"} width="100" height="32" alt="ACG Micro" />
         <p class="text-md">
-          <%= gettext("Proveedor de piezas y componentes especializados en Apple.") %>
+          {gettext("Proveedor de piezas y componentes especializados en Apple.")}
         </p>
         <%!-- LANGUAGE SELECTOR --%>
-        <%= live_render(@socket, PhoenixDemoWeb.Layouts.Components.LanguageSelector,
+        {live_render(@socket, PhoenixDemoWeb.Layouts.Components.LanguageSelector,
           id: "language_selector"
-        ) %>
+        )}
       </div>
 
       <div class="flex flex-col gap-4">
@@ -108,21 +108,21 @@
           class="link link-hover text-md"
           navigate="/"
         >
-          <%= gettext("Home") %>
+          {gettext("Home")}
         </.fast_link>
         <.fast_link
           id="586efa77-d336-4fc7-8be7-cd30e293ac46"
           class="link link-hover text-md"
           navigate={~p"/products"}
         >
-          <%= gettext("Productos") %>
+          {gettext("Productos")}
         </.fast_link>
         <.fast_link
           id="96763684-5473-4fdb-8828-0e9e68dc9a90"
           class="link link-hover text-md"
           navigate={~p"/about"}
         >
-          <%= gettext("Acerca de") %>
+          {gettext("Acerca de")}
         </.fast_link>
       </div>
     </div>
@@ -133,10 +133,10 @@
     <%!-- RIGHTS --%>
     <div class="flex flex-row gap-6 justify-between">
       <div class="text-md italic font-semibold">
-        <%= gettext("2024 ACG Micro. Todos los derechos reservados.") %>
+        {gettext("2024 ACG Micro. Todos los derechos reservados.")}
       </div>
       <div class="text-md italic">
-        <%= gettext("Escrito en") %>
+        {gettext("Escrito en")}
         <a
           href="https://elixir-lang.org/"
           target="_blank"
@@ -148,7 +148,7 @@
             width="16"
             height="16"
             alt="Elixir Logo"
-          /><%= gettext("Elixir") %>
+          />{gettext("Elixir")}
         </a>
       </div>
     </div>

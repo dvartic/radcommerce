@@ -20,7 +20,7 @@ defmodule PhoenixDemoWeb.AboutLive do
   def render(assigns) do
     ~H"""
     <div class="markdown-render prose">
-      <%= @markdown_desc %>
+      {@markdown_desc}
     </div>
     """
   end

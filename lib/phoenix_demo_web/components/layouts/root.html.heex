@@ -16,7 +16,7 @@
       }
     />
     <.live_title suffix=" · Electronic and Computer Parts">
-      <%= assigns[:page_title] || "ACG Micro" %>
+      {assigns[:page_title] || "ACG Micro"}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer src="https://js.stripe.com/v3/" type="text/javascript">
@@ -25,6 +25,6 @@
     </script>
   </head>
   <body>
-    <%= @inner_content %>
+    {@inner_content}
   </body>
 </html>

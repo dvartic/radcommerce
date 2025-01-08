@@ -47,7 +47,9 @@ defmodule PhoenixDemo.Products do
       from products in Product,
         join: name in assoc(products, :name),
         left_join: translations in assoc(name, :translations),
-        where: ilike(name.original_text, ^ilike_query) or ilike(translations.translated_text, ^ilike_query),
+        where:
+          ilike(name.original_text, ^ilike_query) or
+            ilike(translations.translated_text, ^ilike_query),
         distinct: products.id,
         preload: [
           description: [translations: :language],

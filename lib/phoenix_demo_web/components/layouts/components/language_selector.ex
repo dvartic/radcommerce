@@ -30,7 +30,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.LanguageSelector do
       <select name="locale" class="select select-info w-36 select-sm" aria-label="Change language">
         <%= for locale <- @locale_list do %>
           <option selected={locale.value == @current_locale} value={locale.value}>
-            <%= locale.text %>
+            {locale.text}
           </option>
         <% end %>
       </select>

@@ -59,7 +59,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
                 </button>
               </div>
               <div id={"#{@id}-content"} class="h-full">
-                <%= render_slot(@inner_block) %>
+                {render_slot(@inner_block)}
               </div>
             </.focus_wrap>
           </div>
@@ -127,7 +127,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
       phx-hook="FastLink"
       {@rest}
     >
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </a>
     """
   end
@@ -142,7 +142,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
       phx-hook="FastLink"
       {@rest}
     >
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </a>
     """
   end
@@ -161,7 +161,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
       phx-hook="FastLink"
       {@rest}
     >
-      <%= render_slot(@inner_block) %>
+      {render_slot(@inner_block)}
     </a>
     """
   end

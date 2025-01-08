@@ -127,20 +127,20 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       <div class="flex flex-col gap-8">
         <%!-- TITLE AND PRICE --%>
         <div class="flex flex-col gap-6 pb-6 border-b">
-          <h1 class="font-bold text-4xl"><%= @product_name %></h1>
-          <div class="font-mono font-medium text-xl"><%= @product.price %></div>
+          <h1 class="font-bold text-4xl">{@product_name}</h1>
+          <div class="font-mono font-medium text-xl">{@product.price}</div>
         </div>
         <%!-- OPTIONS --%>
         <div class="flex flex-col gap-6">
           <%= if @properties_parsed != nil do %>
             <%= for {key, valueList} <- @properties_parsed do %>
               <div class="flex flex-col gap-2">
-                <div class="font-bold text-lg"><%= key %><sup class="text-error"> *</sup></div>
+                <div class="font-bold text-lg">{key}<sup class="text-error"> *</sup></div>
                 <div class="flex flex-row gap-3 flex-wrap">
                   <%= for value <- valueList do %>
                     <fieldset>
                       <label class="btn btn-outline btn-sm has-[:checked]:btn-active">
-                        <span><%= value %></span>
+                        <span>{value}</span>
                         <div class="hidden">
                           <.input
                             type="radio"
@@ -161,14 +161,14 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
 
         <%!-- TEXT --%>
         <div class="markdown-render prose">
-          <%= @markdown_desc %>
+          {@markdown_desc}
         </div>
 
         <div class="flex flex-col gap-2">
           <%!-- GLOBAL ERRORS --%>
           <div class="h-[40px]">
             <%= if @form.errors[:global] != nil do %>
-              <p class="text-error text-sm"><%= elem(@form.errors[:global], 0) %></p>
+              <p class="text-error text-sm">{elem(@form.errors[:global], 0)}</p>
             <% end %>
           </div>
           <%!-- ACTION --%>
@@ -177,7 +177,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
             class="btn btn-block btn-primary btn-lg phx-submit-loading:opacity-75"
             phx-hook="FormSubmitOnMousedown"
           >
-            <.icon name="hero-plus" class="h-6 w-6" /> <%= gettext("Añadir a carrito") %>
+            <.icon name="hero-plus" class="h-6 w-6" /> {gettext("Añadir a carrito")}
           </button>
         </div>
       </div>

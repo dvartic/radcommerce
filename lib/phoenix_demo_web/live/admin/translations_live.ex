@@ -24,7 +24,7 @@ defmodule PhoenixDemoWeb.Admin.TranslationsLive do
   def fields do
     [
       translated_text: %{
-        module: Backpex.Fields.Text,
+        module: Backpex.Fields.Textarea,
         label: "Translated Text"
       },
       language: %{

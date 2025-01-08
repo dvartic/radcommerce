@@ -32,7 +32,9 @@ defmodule PhoenixDemoWeb.AdminLoginLiveTest do
       {:ok, lv, _html} = live(conn, ~p"/admins/log_in")
 
       form =
-        form(lv, "#login_form", admin: %{email: admin.email, password: password, remember_me: true})
+        form(lv, "#login_form",
+          admin: %{email: admin.email, password: password, remember_me: true}
+        )
 
       conn = submit_form(form, conn)
 

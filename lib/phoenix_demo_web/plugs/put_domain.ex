@@ -6,7 +6,6 @@ defmodule PhoenixDemoWeb.PutDomain do
   end
 
   def call(conn, _opts) do
-
     conn
     # For Liveview
     |> put_session(:domain, "#{conn.scheme}://#{conn.host}:#{conn.port}")

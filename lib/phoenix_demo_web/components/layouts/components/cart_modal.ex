@@ -230,7 +230,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
     <div>
       <.drawer id="confirm-modal" containerClass="w-[100vw] max-w-xl">
         <div class="h-full flex flex-col gap-6 sm:gap-10">
-          <h1 class="font-bold text-xl"><%= gettext("Carrito") %></h1>
+          <h1 class="font-bold text-xl">{gettext("Carrito")}</h1>
           <%!-- CART ITEMS --%>
           <div class="max-h-full h-full overflow-auto flex flex-col gap-6 sm:gap-10 px-2">
             <%= for cart_item <- @cart.items do %>
@@ -242,7 +242,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
           <div class="flex flex-col gap-1">
             <%= if @stripe_error != nil do %>
               <p class="text-xs text-error">
-                <%= @stripe_error %>
+                {@stripe_error}
               </p>
             <% end %>
             <button
@@ -278,7 +278,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
               <% else %>
                 <.icon name="hero-shopping-bag" class="h-6 w-6" />
               <% end %>
-              <%= gettext("Realizar Compra") %>
+              {gettext("Realizar Compra")}
             </button>
           </div>
         </div>

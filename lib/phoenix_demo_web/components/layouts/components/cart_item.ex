@@ -76,18 +76,18 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartItem do
       <div class="flex flex-col gap-2 flex-grow h-full items-start justify-between">
         <div class="flex flex-col gap-1">
           <p class="font-bold text-sm sm:text-md leading-4 sm:leading-5 line-clamp-2">
-            <%= @product_name %>
+            {@product_name}
           </p>
 
           <%= if @properties_parsed != nil do %>
             <div class="flex flex-row max-h-[16px] overflow-hidden flex-wrap gap-1">
               <%= for value <- @properties_parsed do %>
-                <div class="badge badge-primary badge-xs sm:badge-sm"><%= value %></div>
+                <div class="badge badge-primary badge-xs sm:badge-sm">{value}</div>
               <% end %>
             </div>
           <% end %>
         </div>
-        <div class="font-mono font-medium text-sm sm:text-md"><%= @product_price %></div>
+        <div class="font-mono font-medium text-sm sm:text-md">{@product_price}</div>
       </div>
       <%!-- QUANTITY AND REMOVE --%>
       <div class="h-full flex flex-col items-end justify-between gap-2">

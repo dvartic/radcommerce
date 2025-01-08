@@ -58,7 +58,7 @@ defmodule PhoenixDemoWeb.Checkout.CheckoutReturnLive do
               d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span><%= gettext("Tu compra se ha realizado con éxito!") %></span>
+          <span>{gettext("Tu compra se ha realizado con éxito!")}</span>
         </div>
       <% else %>
         <div role="alert" class="alert alert-error">
@@ -75,7 +75,7 @@ defmodule PhoenixDemoWeb.Checkout.CheckoutReturnLive do
               d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span><%= gettext("Error! El proceso de pago ha fallado:") %> <%= @stripe_error %></span>
+          <span>{gettext("Error! El proceso de pago ha fallado:")} {@stripe_error}</span>
         </div>
       <% end %>
 
@@ -83,25 +83,27 @@ defmodule PhoenixDemoWeb.Checkout.CheckoutReturnLive do
         <%= if @is_success == true do %>
           <div class="prose text-center">
             <p>
-              <%= gettext("Se ha completado el pago y el pedido se ha realizado con éxito.") %>
+              {gettext("Se ha completado el pago y el pedido se ha realizado con éxito.")}
             </p>
             <p>
-              <%= gettext("Hemos enviado un correo electrónico a") %>
-              <span class="font-bold"><%= @customer_email %></span>
-              <%= gettext("con los datos del pedido.") %>
+              {gettext("Hemos enviado un correo electrónico a")}
+              <span class="font-bold">{@customer_email}</span>
+              {gettext("con los datos del pedido.")}
             </p>
             <p>
-              <%= gettext("Recibirás un nuevo correo con número de seguimiento.") %>
+              {gettext("Recibirás un nuevo correo con número de seguimiento.")}
             </p>
           </div>
         <% else %>
           <div class="w-full flex flex-col items-center gap-10">
             <div class="prose text-center">
               <p>
-                <%= gettext("Por favor, intenta el pago de nuevo. Si el error persiste, contacta con nosotros.") %>
+                {gettext(
+                  "Por favor, intenta el pago de nuevo. Si el error persiste, contacta con nosotros."
+                )}
               </p>
               <p class="text-error">
-                <%= @stripe_error %>
+                {@stripe_error}
               </p>
             </div>
           </div>

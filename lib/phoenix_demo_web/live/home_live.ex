@@ -39,32 +39,32 @@ defmodule PhoenixDemoWeb.HomeLive do
           <%!-- FREE SHIPPING --%>
           <div class="flex flex-col items-center justify-center transition-all duration-150">
             <p class="text-white font-bold uppercase font-heading text-xl tracking-widest">
-              <%= gettext("Envío Gratis") %>
+              {gettext("Envío Gratis")}
             </p>
-            <p class="text-white text-sm"><%= gettext("A toda Europa") %></p>
+            <p class="text-white text-sm">{gettext("A toda Europa")}</p>
           </div>
 
           <%!-- FIVE STAR RATING --%>
           <div class="flex flex-col items-center justify-center transition-all duration-150">
             <p class="text-white font-bold uppercase font-heading text-xl tracking-widest">
-              <%= gettext("⋆⋆⋆⋆⋆") %>
+              {gettext("⋆⋆⋆⋆⋆")}
             </p>
             <a
               class="link link-hover text-white text-sm"
               href="https://www.ebay.es/usr/acg_micro"
               target="_blank"
             >
-              <%= gettext("100% votos positivos") %>
+              {gettext("100% votos positivos")}
             </a>
           </div>
 
           <%!-- VOLUMEN DE VENTAS --%>
           <div class="flex flex-col items-center justify-center transition-all duration-150">
             <p class="text-white font-bold uppercase font-heading text-xl tracking-widest">
-              <%= gettext("Experiencia") %>
+              {gettext("Experiencia")}
             </p>
             <p class="text-white text-sm" href="https://www.ebay.es/usr/acg_micro" target="_blank">
-              <%= gettext(">1.2 mil artículos vendidos") %>
+              {gettext(">1.2 mil artículos vendidos")}
             </p>
           </div>
         </div>
@@ -75,13 +75,13 @@ defmodule PhoenixDemoWeb.HomeLive do
         <div class="w-full max-w-[480px] lg:w-[40%] lg:max-w-[40%] flex flex-col gap-6 items-center lg:items-start flex-grow flex-shrink">
           <h1 class="text-center lg:text-left font-heading text-5xl" phx-no-format><%= gettext("Piezas y componentes de electrónica.") %> <span class="bg-primary py-0 px-3 rounded-full text-black"><%= gettext("Especializados") %></span> <%= gettext("en Apple.") %></h1>
           <p class="text-lg text-center lg:text-left">
-            <%= gettext(
+            {gettext(
               "Miles de componentes vendidos. Envío gratuíto a Europa. Soporte rápido experto en Apple."
-            ) %>
+            )}
           </p>
           <div class="flex flex-row gap-4">
             <.fast_link class="btn btn-primary" navigate={~p"/products"} id="prod-link-hero">
-              <%= gettext("Ver Productos") %>
+              {gettext("Ver Productos")}
             </.fast_link>
           </div>
         </div>
@@ -102,7 +102,7 @@ defmodule PhoenixDemoWeb.HomeLive do
 
       <%!-- BENEFITS --%>
       <section class="w-full flex flex-col items-center gap-12">
-        <h2 class="text-3xl font-bold"><%= gettext("Por qué elegirnos") %></h2>
+        <h2 class="text-3xl font-bold">{gettext("Por qué elegirnos")}</h2>
         <div class="w-full flex flex-row items-center flex-wrap justify-center gap-12">
           <.advantages_card>
             <:title>
@@ -114,17 +114,17 @@ defmodule PhoenixDemoWeb.HomeLive do
                   width="80"
                   height="80"
                 />
-                <p class="text-2xl font-bold"><%= gettext("Devoluciones") %></p>
+                <p class="text-2xl font-bold">{gettext("Devoluciones")}</p>
               </div>
             </:title>
             <:description>
               <div class="prose">
                 <ul>
-                  <li><%= gettext("Devoluciones gratuitas 30 días.") %></li>
+                  <li>{gettext("Devoluciones gratuitas 30 días.")}</li>
                   <li>
-                    <%= gettext("Recogidas directas en dirección o depósito en punto de entrega.") %>
+                    {gettext("Recogidas directas en dirección o depósito en punto de entrega.")}
                   </li>
-                  <li><%= gettext("Inicia el proceso poniéndote en contacto con nosotros.") %></li>
+                  <li>{gettext("Inicia el proceso poniéndote en contacto con nosotros.")}</li>
                 </ul>
               </div>
             </:description>
@@ -140,17 +140,17 @@ defmodule PhoenixDemoWeb.HomeLive do
                   width="80"
                   height="80"
                 />
-                <p class="text-2xl font-bold"><%= gettext("Envíos") %></p>
+                <p class="text-2xl font-bold">{gettext("Envíos")}</p>
               </div>
             </:title>
             <:description>
               <div class="prose">
                 <ul>
-                  <li><%= gettext("Envío gratuíto en todos los productos.") %></li>
-                  <li><%= gettext("Servicio 24hrs península y 48/72hrs islas.") %></li>
-                  <li><%= gettext("Servicio estándar y express a Europa.") %></li>
+                  <li>{gettext("Envío gratuíto en todos los productos.")}</li>
+                  <li>{gettext("Servicio 24hrs península y 48/72hrs islas.")}</li>
+                  <li>{gettext("Servicio estándar y express a Europa.")}</li>
                   <li>
-                    <%= gettext("Se envía el mismo día si se compra antes de las 13:00h hora EET.") %>
+                    {gettext("Se envía el mismo día si se compra antes de las 13:00h hora EET.")}
                   </li>
                 </ul>
               </div>
@@ -160,19 +160,19 @@ defmodule PhoenixDemoWeb.HomeLive do
             <:title>
               <div class="flex flex-col gap-2 items-center">
                 <.icon name="hero-envelope" class="w-20 h-20" />
-                <p class="text-2xl font-bold"><%= gettext("Soporte") %></p>
+                <p class="text-2xl font-bold">{gettext("Soporte")}</p>
               </div>
             </:title>
             <:description>
               <div class="prose">
                 <ul>
                   <li>
-                    <%= gettext(
+                    {gettext(
                       "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
-                    ) %>
+                    )}
                   </li>
                   <li>
-                    <%= gettext("Trabajaremos con diligencia para resolver cualquier problema.") %>
+                    {gettext("Trabajaremos con diligencia para resolver cualquier problema.")}
                   </li>
                 </ul>
               </div>
