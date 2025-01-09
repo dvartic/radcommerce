@@ -285,9 +285,14 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
       </.drawer>
       <.button
         qphx-mousedown={show_drawer(:right, "confirm-modal")}
-        class="btn btn-square btn-primary rounded-md btn-md"
+        class="btn btn-square btn-primary rounded-md btn-md relative"
       >
         <.icon name="hero-shopping-cart-solid" class="h-4 w-4" />
+        <%= if length(@cart.items) > 0 do %>
+          <div class="absolute top-0 right-0 text-green-700 w-4 h-4 flex items-center justify-center text-xs">
+            {length(@cart.items)}
+          </div>
+        <% end %>
       </.button>
     </div>
     """
