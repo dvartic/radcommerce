@@ -8,7 +8,7 @@ defmodule PhoenixDemo.Accounts.AdminNotifier do
     email =
       new()
       |> to(recipient)
-      |> from({"PhoenixDemo", "contact@example.com"})
+      |> from({"ACG Micro", "noreply@acgmicro.com"})
       |> subject(subject)
       |> text_body(body)
 

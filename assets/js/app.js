@@ -29,6 +29,8 @@ import { HeaderLinkActive } from "./header-link-active.js";
 import { CycleAdvantages } from "./hero-adv-cycle.js";
 import { FastLink } from "./fast-link.js";
 import { FormSubmitOnMousedown } from "./form-submit-onmousedown.js";
+import { SummaryMouseDown } from "./summary-onmousedown.js";
+import { DetailsDropdownClickOutside } from "./details-dropdown-click-outside.js";
 
 // Alpine init
 window.Alpine = Alpine;
@@ -79,6 +81,8 @@ let liveSocket = new LiveSocket("/live", Socket, {
     CycleAdvantages,
     FastLink,
     FormSubmitOnMousedown,
+    SummaryMouseDown,
+    DetailsDropdownClickOutside,
   },
 });
 

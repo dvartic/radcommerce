@@ -2,6 +2,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
   import PhoenixDemo.ResolveTranslations
+  import PhoenixDemoWeb.Utils.Utils
   use Gettext, backend: PhoenixDemoWeb.Gettext
 
   # Product Schema
@@ -19,12 +20,7 @@ defmodule PhoenixDemoWeb.Products.Product.ProductView do
       assign(
         assigns,
         :img_src_list,
-        assigns.product.images
-        |> Enum.map(fn rel_src -> ProductsLive.file_url(rel_src) end)
-        |> then(fn
-          list when list == [] -> ["/images/image-off.svg"]
-          list -> list
-        end)
+        resolve_img_src_list(assigns.product.images)
       )
 
     # Properties Json Parsing

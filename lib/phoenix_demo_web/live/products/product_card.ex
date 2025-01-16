@@ -3,10 +3,9 @@ defmodule PhoenixDemoWeb.Products.ProductCard do
   use PhoenixDemoWeb, :verified_routes
   import PhoenixDemoWeb.CustomComponents
   import PhoenixDemo.ResolveTranslations
+  import PhoenixDemoWeb.Utils.Utils
   # Product Schema
   alias PhoenixDemo.Schemas.Product
-
-  alias PhoenixDemoWeb.Admin.ProductsLive
 
   attr :product, Product, required: true
   attr :locale, :string, required: true
@@ -18,15 +17,7 @@ defmodule PhoenixDemoWeb.Products.ProductCard do
       |> assign(:product_name, resolve_text_content(assigns.product.name, assigns.locale))
       |> assign(
         :img_src,
-        assigns.product.images
-        |> List.first(nil)
-        |> then(fn img_src_or_nil ->
-          if img_src_or_nil == nil do
-            "/images/image-off.svg"
-          else
-            ProductsLive.file_url(img_src_or_nil)
-          end
-        end)
+        resolve_img_src(assigns.product.images)
       )
 
     ~H"""

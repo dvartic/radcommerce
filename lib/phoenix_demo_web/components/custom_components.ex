@@ -1,7 +1,6 @@
 defmodule PhoenixDemoWeb.CustomComponents do
   use Phoenix.Component
   import PhoenixDemoWeb.CoreComponents
-  import Phoenix.Controller
 
   alias Phoenix.LiveView.JS
 
@@ -156,7 +155,7 @@ defmodule PhoenixDemoWeb.CustomComponents do
       id={@id}
       href={@href}
       data-method={if @method != "get", do: @method}
-      data-csrf={if @method != "get", do: get_csrf_token()}
+      data-csrf={if @method != "get", do: Phoenix.Controller.get_csrf_token()}
       data-to={if @method != "get", do: @href}
       phx-hook="FastLink"
       {@rest}

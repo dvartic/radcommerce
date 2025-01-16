@@ -51,8 +51,7 @@ defmodule PhoenixDemo.MixProject do
        app: false,
        compile: false,
        depth: 1},
-      {:swoosh, "~> 1.17"},
-      {:finch, "~> 0.19"},
+      {:swoosh, "~> 1.17.6"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.1"},
       {:gettext, "~> 0.26.2"},
@@ -64,7 +63,8 @@ defmodule PhoenixDemo.MixProject do
       {:mdex, "~> 0.1"},
       {:stripity_stripe, "~> 3.2"},
       {:dotenvy, "~> 0.8.0"},
-      {:image, "~> 0.54.4"}
+      {:image, "~> 0.54.4"},
+      {:req, "~> 0.5.8"}
     ]
   end
 

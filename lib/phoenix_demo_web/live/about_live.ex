@@ -3,13 +3,10 @@ defmodule PhoenixDemoWeb.AboutLive do
 
   @impl true
   def mount(_params, session, socket) do
-    IO.inspect(session)
     locale = Map.get(session, "locale", "es")
 
     md_file_path =
       Path.join([:code.priv_dir(:phoenix_demo), "static", "content", "about_" <> locale <> ".md"])
-
-    IO.inspect(md_file_path)
 
     md_file_read = File.read(md_file_path)
 

@@ -12,9 +12,7 @@ defmodule PhoenixDemo.Schemas.Product do
     belongs_to :properties, TextContent
     field :images, {:array, :string}
     field :price, Backpex.Ecto.Amount.Type, currency: :EUR, opts: [separator: ".", delimiter: ","]
-
-    # Translated fields
-    belongs_to :example_text, TextContent
+    field :is_active, :boolean, default: true
 
     timestamps()
 
@@ -24,10 +22,9 @@ defmodule PhoenixDemo.Schemas.Product do
 
   def changeset(product, attrs \\ %{}) do
     product
-    |> cast(attrs, [:name_id, :price, :description_id, :images])
+    |> cast(attrs, [:name_id, :price, :description_id, :images, :is_active])
     |> validate_required([:name_id, :price, :description_id])
     |> validate_length(:images, max: 20)
-    |> foreign_key_constraint(:example_text_id)
     |> foreign_key_constraint(:name_id)
     |> foreign_key_constraint(:description_id)
     |> foreign_key_constraint(:properties_id)

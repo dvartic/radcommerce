@@ -17,7 +17,8 @@ defmodule PhoenixDemo.Products do
           description: [translations: :language],
           properties: [translations: :language],
           name: [translations: :language]
-        ]
+        ],
+        where: products.is_active == true
       )
 
     Repo.all(query)
@@ -34,7 +35,8 @@ defmodule PhoenixDemo.Products do
           description: [translations: :language],
           properties: [translations: :language],
           name: [translations: :language]
-        ]
+        ],
+        where: products.is_active == true
       )
 
     Repo.all(query)
@@ -50,6 +52,7 @@ defmodule PhoenixDemo.Products do
         where:
           ilike(name.original_text, ^ilike_query) or
             ilike(translations.translated_text, ^ilike_query),
+        where: products.is_active == true,
         distinct: products.id,
         preload: [
           description: [translations: :language],
@@ -62,9 +65,10 @@ defmodule PhoenixDemo.Products do
 
   def get_random_sample_products(limit) do
     query =
-      from Product,
+      from products in Product,
         order_by: fragment("RANDOM()"),
         limit: ^limit,
+        where: products.is_active == true,
         preload: [
           description: [translations: :language],
           properties: [translations: :language],
@@ -78,6 +82,7 @@ defmodule PhoenixDemo.Products do
     Repo.one(
       from product in Product,
         where: product.id == ^id,
+        where: product.is_active == true,
         preload: [
           name: [translations: :language],
           description: [translations: :language],

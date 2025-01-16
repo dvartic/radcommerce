@@ -19,6 +19,7 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
   def mount(_params, session, socket) do
     cart_id = session[PutCartCookie.cart_id_cookie_name()]
     domain = session["domain"]
+    current_user = session["current_user"]
     locale = Map.get(session, "locale", "es")
 
     # Subscribe to cart channel
@@ -33,7 +34,8 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
      |> assign(stripe_error: nil)
      |> assign(:is_loading, false)
      |> assign(:domain, domain)
-     |> assign(:locale, locale)}
+     |> assign(:locale, locale)
+     |> assign(:current_user, current_user)}
   end
 
   @impl true
@@ -132,6 +134,8 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
 
   @impl true
   def handle_info({:run_checkout, cart}, socket) do
+    user = Map.get(socket.assigns, :current_user, nil)
+
     domain = socket.assigns.domain
 
     # Read i18n
@@ -143,6 +147,11 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
         ui_mode: :embedded,
         line_items:
           Enum.map(cart.items, fn cart_item ->
+            product_properties_inline =
+              Jason.decode!(resolve_text_content(cart_item.properties, current_locale))
+              |> Enum.map(fn {k, v} -> "#{k}: #{v}" end)
+              |> Enum.join(", ")
+
             %{
               quantity: cart_item.quantity,
               price_data: %{
@@ -151,9 +160,14 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
                 product_data: %{
                   name: resolve_text_content(cart_item.product.name, current_locale),
                   description:
-                    resolve_text_content(cart_item.product.description, current_locale),
+                    product_properties_inline <>
+                      if(byte_size(product_properties_inline) == 0, do: "", else: " | ") <>
+                      resolve_text_content(cart_item.product.description, current_locale),
                   metadata:
-                    Jason.decode!(resolve_text_content(cart_item.properties, current_locale)),
+                    Jason.decode!(resolve_text_content(cart_item.properties, current_locale))
+                    |> Map.merge(%{
+                      "original_url" => "/products/" <> Integer.to_string(cart_item.product.id)
+                    }),
                   images:
                     Map.get(cart_item.product || %{images: []}, :images)
                     |> Enum.map(fn image ->
@@ -176,7 +190,8 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
           shipping_address: %{message: gettext("Envío express o estándar desde España")}
         },
         locale: String.to_atom(current_locale),
-        phone_number_collection: %{enabled: true}
+        phone_number_collection: %{enabled: true},
+        metadata: if(user != nil, do: %{"user_id" => user.id}, else: %{})
       })
 
     case session_res do
@@ -285,11 +300,11 @@ defmodule PhoenixDemoWeb.Layouts.Components.CartModal do
       </.drawer>
       <.button
         qphx-mousedown={show_drawer(:right, "confirm-modal")}
-        class="btn btn-square btn-primary rounded-md btn-md relative"
+        class="btn btn-square btn-primary rounded-md btn-sm md:btn-md relative"
       >
         <.icon name="hero-shopping-cart-solid" class="h-4 w-4" />
         <%= if length(@cart.items) > 0 do %>
-          <div class="absolute top-0 right-0 text-green-700 w-4 h-4 flex items-center justify-center text-xs">
+          <div class="absolute top-0 right-0 text-green-700 w-3 h-3 md:w-4 md:h-4 flex items-center justify-center text-[8px] md:text-xs">
             {length(@cart.items)}
           </div>
         <% end %>

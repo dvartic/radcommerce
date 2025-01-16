@@ -76,11 +76,9 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
         except: [:index, :resource_action],
         align: :center
       },
-      example_text: %{
-        module: Backpex.Fields.BelongsTo,
-        label: "Example Text",
-        display_field: :original_text,
-        live_resource: PhoenixDemoWeb.Admin.TextContentsLive
+      is_active: %{
+        module: Backpex.Fields.Boolean,
+        label: "Active"
       }
     ]
   end
@@ -156,7 +154,7 @@ defmodule PhoenixDemoWeb.Admin.ProductsLive do
   end
 
   defp file_name(entry) do
-    # Always use webp
+    # Always use avif
     "#{entry.uuid}.avif"
   end
 

@@ -48,7 +48,7 @@
           </.drawer>
           <.button
             qphx-mousedown={show_drawer(:left, "menu-modal")}
-            class="btn btn-square rounded-md btn-md"
+            class="btn btn-square rounded-md btn-sm md:btn-md"
           >
             <.icon name="hero-bars-3" class="h-4 w-4" />
           </.button>
@@ -76,8 +76,14 @@
     </div>
 
     <%!-- RIGHT BLOCK --%>
-    <div class="justify-self-end">
-      {live_render(@socket, PhoenixDemoWeb.Layouts.Components.CartModal, id: "cart_modal")}
+    <div class="justify-self-end flex flex-row gap-2 items-center justify-center">
+      <PhoenixDemoWeb.Layouts.Components.UserDropdown.user_dropdown current_user={
+        assigns[:current_user]
+      } />
+      {live_render(@socket, PhoenixDemoWeb.Layouts.Components.CartModal,
+        id: "cart_modal",
+        session: %{"current_user" => assigns[:current_user]}
+      )}
     </div>
   </div>
 </header>

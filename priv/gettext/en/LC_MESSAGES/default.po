@@ -11,7 +11,7 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/phoenix_demo_web/live/home_live.ex:36
+#: lib/phoenix_demo_web/live/home_live.ex:44
 #, elixir-autogen, elixir-format
 msgid "A toda Europa"
 msgstr "All across Europe"
@@ -57,180 +57,175 @@ msgstr "We can't find the internet"
 msgid "close"
 msgstr "close"
 
-#: lib/phoenix_demo_web/live/home_live.ex:49
+#: lib/phoenix_demo_web/live/home_live.ex:57
 #, elixir-autogen, elixir-format
 msgid "100% votos positivos"
 msgstr "100% positive feedback"
 
-#: lib/phoenix_demo_web/live/home_live.ex:59
+#: lib/phoenix_demo_web/live/home_live.ex:67
 #, elixir-autogen, elixir-format
 msgid ">1.2 mil artículos vendidos"
 msgstr ">1.2 thousand items sold"
 
-#: lib/phoenix_demo_web/live/home_live.ex:165
+#: lib/phoenix_demo_web/live/home_live.ex:170
 #, elixir-autogen, elixir-format
 msgid "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
 msgstr "Contact us if you have any questions or issues with your order. We'll respond as soon as possible within 24 hours."
 
-#: lib/phoenix_demo_web/live/home_live.ex:112
+#: lib/phoenix_demo_web/live/home_live.ex:117
 #, elixir-autogen, elixir-format
 msgid "Devoluciones"
 msgstr "Returns"
 
-#: lib/phoenix_demo_web/live/home_live.ex:118
+#: lib/phoenix_demo_web/live/home_live.ex:123
 #, elixir-autogen, elixir-format
 msgid "Devoluciones gratuitas 30 días."
 msgstr "Free 30-day returns."
 
-#: lib/phoenix_demo_web/live/home_live.ex:34
+#: lib/phoenix_demo_web/live/home_live.ex:42
 #, elixir-autogen, elixir-format
 msgid "Envío Gratis"
 msgstr "Free Shipping"
 
-#: lib/phoenix_demo_web/live/home_live.ex:144
+#: lib/phoenix_demo_web/live/home_live.ex:149
 #, elixir-autogen, elixir-format
 msgid "Envío gratuíto en todos los productos."
 msgstr "Free shipping on all products."
 
-#: lib/phoenix_demo_web/live/home_live.ex:138
+#: lib/phoenix_demo_web/live/home_live.ex:143
 #, elixir-autogen, elixir-format
 msgid "Envíos"
 msgstr "Shipping"
 
-#: lib/phoenix_demo_web/live/home_live.ex:68
+#: lib/phoenix_demo_web/live/home_live.ex:76
 #, elixir-autogen, elixir-format
 msgid "Especializados"
 msgstr "Specialized"
 
-#: lib/phoenix_demo_web/live/home_live.ex:56
+#: lib/phoenix_demo_web/live/home_live.ex:64
 #, elixir-autogen, elixir-format
 msgid "Experiencia"
 msgstr "Experience"
 
-#: lib/phoenix_demo_web/live/home_live.ex:87
+#: lib/phoenix_demo_web/live/home_live.ex:92
 #, elixir-autogen, elixir-format
 msgid "Hero image"
 msgstr "Hero image"
 
-#: lib/phoenix_demo_web/live/home_live.ex:79
-#, elixir-autogen, elixir-format
-msgid "Información"
-msgstr "Information"
-
-#: lib/phoenix_demo_web/live/home_live.ex:122
+#: lib/phoenix_demo_web/live/home_live.ex:127
 #, elixir-autogen, elixir-format
 msgid "Inicia el proceso poniéndote en contacto con nosotros."
 msgstr "Start the process by contacting us."
 
-#: lib/phoenix_demo_web/live/home_live.ex:70
+#: lib/phoenix_demo_web/live/home_live.ex:78
 #, elixir-autogen, elixir-format
 msgid "Miles de componentes vendidos. Envío gratuíto a Europa. Soporte rápido experto en Apple."
 msgstr "Thousands of components sold. Free shipping to Europe. Fast expert Apple support."
 
-#: lib/phoenix_demo_web/live/home_live.ex:68
+#: lib/phoenix_demo_web/live/home_live.ex:76
 #, elixir-autogen, elixir-format
 msgid "Piezas y componentes de electrónica."
 msgstr "Electronic parts and components."
 
-#: lib/phoenix_demo_web/live/home_live.ex:100
+#: lib/phoenix_demo_web/live/home_live.ex:105
 #, elixir-autogen, elixir-format
 msgid "Por qué elegirnos"
 msgstr "Why choose us"
 
-#: lib/phoenix_demo_web/live/home_live.ex:120
+#: lib/phoenix_demo_web/live/home_live.ex:125
 #, elixir-autogen, elixir-format
 msgid "Recogidas directas en dirección o depósito en punto de entrega."
 msgstr "Direct pickups at address or deposit at delivery point."
 
-#: lib/phoenix_demo_web/live/home_live.ex:107
+#: lib/phoenix_demo_web/live/home_live.ex:112
 #, elixir-autogen, elixir-format
 msgid "Return policy"
 msgstr "Return policy"
 
-#: lib/phoenix_demo_web/live/home_live.ex:148
+#: lib/phoenix_demo_web/live/home_live.ex:153
 #, elixir-autogen, elixir-format
 msgid "Se envía el mismo día si se compra antes de las 13:00h hora EET."
 msgstr "Same-day shipping if purchased before 13:00 EET."
 
-#: lib/phoenix_demo_web/live/home_live.ex:145
+#: lib/phoenix_demo_web/live/home_live.ex:150
 #, elixir-autogen, elixir-format
 msgid "Servicio 24hrs península y 48/72hrs islas."
 msgstr "24-hour service for mainland and 48/72-hour service for islands."
 
-#: lib/phoenix_demo_web/live/home_live.ex:146
+#: lib/phoenix_demo_web/live/home_live.ex:151
 #, elixir-autogen, elixir-format
 msgid "Servicio estándar y express a Europa."
 msgstr "Standard and express service to Europe."
 
-#: lib/phoenix_demo_web/live/home_live.ex:133
+#: lib/phoenix_demo_web/live/home_live.ex:138
 #, elixir-autogen, elixir-format
 msgid "Shipping policy"
 msgstr "Shipping policy"
 
-#: lib/phoenix_demo_web/live/home_live.ex:158
+#: lib/phoenix_demo_web/live/home_live.ex:163
 #, elixir-autogen, elixir-format
 msgid "Soporte"
 msgstr "Support"
 
-#: lib/phoenix_demo_web/live/home_live.ex:170
+#: lib/phoenix_demo_web/live/home_live.ex:175
 #, elixir-autogen, elixir-format
 msgid "Trabajaremos con diligencia para resolver cualquier problema."
 msgstr "We will work diligently to resolve any issues."
 
-#: lib/phoenix_demo_web/live/home_live.ex:76
+#: lib/phoenix_demo_web/live/home_live.ex:84
 #, elixir-autogen, elixir-format
 msgid "Ver Productos"
 msgstr "View Products"
 
-#: lib/phoenix_demo_web/live/home_live.ex:68
+#: lib/phoenix_demo_web/live/home_live.ex:76
 #, elixir-autogen, elixir-format
 msgid "en Apple."
 msgstr "in Apple."
 
-#: lib/phoenix_demo_web/live/home_live.ex:42
+#: lib/phoenix_demo_web/live/home_live.ex:50
 #, elixir-autogen, elixir-format
 msgid "⋆⋆⋆⋆⋆"
 msgstr "⋆⋆⋆⋆⋆"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:111
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:142
 #, elixir-autogen, elixir-format
 msgid "2024 ACG Micro. Todos los derechos reservados."
 msgstr "2024 ACG Micro. All rights reserved."
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:100
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:131
 #, elixir-autogen, elixir-format
 msgid "Acerca de"
 msgstr "About"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:126
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:157
 #, elixir-autogen, elixir-format
 msgid "Elixir"
 msgstr "Elixir"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:114
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:145
 #, elixir-autogen, elixir-format
 msgid "Escrito en"
 msgstr "Written in"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:32
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:94
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:36
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:117
 #, elixir-autogen, elixir-format
 msgid "Home"
 msgstr "Home"
 
 #: lib/phoenix_demo_web/components/layouts/app.html.heex:15
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:35
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:97
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:43
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:124
 #, elixir-autogen, elixir-format
 msgid "Productos"
 msgstr "Products"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:84
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:103
 #, elixir-autogen, elixir-format
 msgid "Proveedor de piezas y componentes especializados en Apple."
 msgstr "Provider of specialized Apple parts and components."
 
-#: lib/phoenix_demo_web/live/products/product/product_view.ex:169
+#: lib/phoenix_demo_web/live/products/product/product_view.ex:176
 #, elixir-autogen, elixir-format
 msgid "Añadir a carrito"
 msgstr "Add to cart"
@@ -240,17 +235,17 @@ msgstr "Add to cart"
 msgid "Buscar"
 msgstr "Search"
 
-#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:229
+#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:248
 #, elixir-autogen, elixir-format
 msgid "Carrito"
 msgstr "Cart"
 
-#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:277
+#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:296
 #, elixir-autogen, elixir-format
 msgid "Realizar Compra"
 msgstr "Place Order"
 
-#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:19
+#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:20
 #, elixir-autogen, elixir-format
 msgid "Envío y pago"
 msgstr "Shipping and Payment"
@@ -295,15 +290,442 @@ msgstr "with the order details."
 msgid "ACG Micro - Piezas y componentes de electrónica. Especialistas en Apple."
 msgstr "ACG Micro - Electronic parts and components. Apple specialists."
 
-#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:172
+#: lib/phoenix_demo_web/components/layouts/components/cart_modal.ex:190
 #, elixir-autogen, elixir-format
 msgid "Envío express o estándar desde España"
 msgstr "Express or standard shipping from Spain"
 
-#: lib/phoenix_demo_web/live/products/categories_panel.ex:20
-#: lib/phoenix_demo_web/live/products/categories_panel.ex:22
-#: lib/phoenix_demo_web/live/products/categories_panel.ex:28
-#: lib/phoenix_demo_web/live/products/categories_panel.ex:47
+#: lib/phoenix_demo_web/live/products/categories_panel.ex:21
+#: lib/phoenix_demo_web/live/products/categories_panel.ex:23
+#: lib/phoenix_demo_web/live/products/categories_panel.ex:29
+#: lib/phoenix_demo_web/live/products/categories_panel.ex:52
 #, elixir-autogen, elixir-format
 msgid "Todos"
 msgstr "All"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:44
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:41
+#, elixir-autogen, elixir-format
+msgid "Abril"
+msgstr "April"
+
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:33
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Acciones"
+msgstr "Actions"
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:13
+#, elixir-autogen, elixir-format
+msgid "Administra tu correo electrónico y configuración de contraseña"
+msgstr "Manage your email and password settings"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:45
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:42
+#, elixir-autogen, elixir-format
+msgid "Agosto"
+msgstr "August"
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:43
+#: lib/phoenix_demo_web/live/user_settings_live.ex:89
+#, elixir-autogen, elixir-format
+msgid "Cambiando..."
+msgstr "Changing..."
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:90
+#, elixir-autogen, elixir-format
+msgid "Cambiar contraseña"
+msgstr "Change password"
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:44
+#, elixir-autogen, elixir-format
+msgid "Cambiar correo electrónico"
+msgstr "Change email"
+
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:13
+#, elixir-autogen, elixir-format
+msgid "Cancelado"
+msgstr "Cancelled"
+
+#: lib/phoenix_demo_web/components/layouts/components/user_dropdown.ex:50
+#, elixir-autogen, elixir-format
+msgid "Cerrar sesión"
+msgstr "Sign out"
+
+#: lib/phoenix_demo_web/live/user/user_menu.ex:31
+#, elixir-autogen, elixir-format
+msgid "Configuración"
+msgstr "Settings"
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:11
+#, elixir-autogen, elixir-format
+msgid "Configuración de cuenta"
+msgstr "Account settings"
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:35
+#: lib/phoenix_demo_web/live/user_settings_live.ex:75
+#, elixir-autogen, elixir-format
+msgid "Confirmar nueva contraseña"
+msgstr "Confirm new password"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:35
+#: lib/phoenix_demo_web/live/user_registration_live.ex:51
+#, elixir-autogen, elixir-format
+msgid "Contraseña"
+msgstr "Password"
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:37
+#: lib/phoenix_demo_web/live/user_settings_live.ex:82
+#, elixir-autogen, elixir-format
+msgid "Contraseña actual"
+msgstr "Current password"
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:22
+#: lib/phoenix_demo_web/live/user_login_live.ex:28
+#: lib/phoenix_demo_web/live/user_registration_live.ex:44
+#: lib/phoenix_demo_web/live/user_settings_live.ex:28
+#, elixir-autogen, elixir-format
+msgid "Correo electrónico"
+msgstr "Email"
+
+#: lib/phoenix_demo_web/live/user_registration_live.ex:60
+#, elixir-autogen, elixir-format
+msgid "Creando cuenta..."
+msgstr "Creating account..."
+
+#: lib/phoenix_demo_web/live/user_registration_live.ex:63
+#, elixir-autogen, elixir-format
+msgid "Crear cuenta"
+msgstr "Create account"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:47
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:44
+#, elixir-autogen, elixir-format
+msgid "Diciembre"
+msgstr "December"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:44
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:41
+#, elixir-autogen, elixir-format
+msgid "Enero"
+msgstr "January"
+
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:12
+#, elixir-autogen, elixir-format
+msgid "Entregado"
+msgstr "Delivered"
+
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:11
+#, elixir-autogen, elixir-format
+msgid "Enviado"
+msgstr "Shipped"
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:30
+#, elixir-autogen, elixir-format
+msgid "Enviando..."
+msgstr "Sending..."
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:33
+#, elixir-autogen, elixir-format
+msgid "Enviar enlace para restablecer contraseña"
+msgstr "Send password reset link"
+
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:32
+#, elixir-autogen, elixir-format
+msgid "Estado"
+msgstr "Status"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:44
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:41
+#, elixir-autogen, elixir-format
+msgid "Febrero"
+msgstr "February"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:38
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:30
+#, elixir-autogen, elixir-format
+msgid "Fecha"
+msgstr "Date"
+
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:29
+#, elixir-autogen, elixir-format
+msgid "ID"
+msgstr "ID"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:88
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Información del pedido"
+msgstr "Order information"
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:43
+#: lib/phoenix_demo_web/live/user_registration_live.ex:22
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:57
+#, elixir-autogen, elixir-format
+msgid "Inicia sesión"
+msgstr "Sign in"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:10
+#, elixir-autogen, elixir-format
+msgid "Inicia sesión en tu cuenta"
+msgstr "Sign in to your account"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:54
+#, elixir-autogen, elixir-format
+msgid "Iniciando sesión..."
+msgstr "Signing in..."
+
+#: lib/phoenix_demo_web/components/layouts/components/user_dropdown.ex:60
+#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:30
+#: lib/phoenix_demo_web/live/user_login_live.ex:57
+#, elixir-autogen, elixir-format
+msgid "Iniciar sesión"
+msgstr "Sign in"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:45
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:42
+#, elixir-autogen, elixir-format
+msgid "Julio"
+msgstr "July"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:45
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:42
+#, elixir-autogen, elixir-format
+msgid "Junio"
+msgstr "June"
+
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:21
+#, elixir-autogen, elixir-format
+msgid "Lista de pedidos"
+msgstr "Order list"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:41
+#, elixir-autogen, elixir-format
+msgid "Mantener sesión"
+msgstr "Keep me signed in"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:44
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:41
+#, elixir-autogen, elixir-format
+msgid "Marzo"
+msgstr "March"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:45
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:42
+#, elixir-autogen, elixir-format
+msgid "Mayo"
+msgstr "May"
+
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:25
+#, elixir-autogen, elixir-format
+msgid "No se han encontrado pedidos"
+msgstr "No orders found"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:12
+#, elixir-autogen, elixir-format
+msgid "No tienes una cuenta?"
+msgstr "Don't have an account?"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:46
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:43
+#, elixir-autogen, elixir-format
+msgid "Noviembre"
+msgstr "November"
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:28
+#: lib/phoenix_demo_web/live/user_settings_live.ex:68
+#, elixir-autogen, elixir-format
+msgid "Nueva contraseña"
+msgstr "New password"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:46
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:43
+#, elixir-autogen, elixir-format
+msgid "Octubre"
+msgstr "October"
+
+#: lib/phoenix_demo_web/components/layouts/components/user_dropdown.ex:40
+#, elixir-autogen, elixir-format
+msgid "Panel"
+msgstr "Dashboard"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:28
+#, elixir-autogen, elixir-format
+msgid "Pedido"
+msgstr "Order"
+
+#: lib/phoenix_demo_web/live/user/user_menu.ex:22
+#, elixir-autogen, elixir-format
+msgid "Pedidos"
+msgstr "Orders"
+
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:10
+#, elixir-autogen, elixir-format
+msgid "Procesando"
+msgstr "Processing"
+
+#: lib/phoenix_demo_web/components/layouts/components/user_dropdown.ex:69
+#, elixir-autogen, elixir-format
+msgid "Registrarse"
+msgstr "Sign up"
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:39
+#: lib/phoenix_demo_web/live/user_login_live.ex:18
+#: lib/phoenix_demo_web/live/user_registration_live.ex:14
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:53
+#, elixir-autogen, elixir-format
+msgid "Regístrate"
+msgstr "Sign up"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:66
+#, elixir-autogen, elixir-format
+msgid "Seguimiento"
+msgstr "Tracking"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:46
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:43
+#, elixir-autogen, elixir-format
+msgid "Septiembre"
+msgstr "September"
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:14
+#, elixir-autogen, elixir-format
+msgid "Te enviaremos un enlace para restablecer tu contraseña a tu correo"
+msgstr "We will send you a password reset link to your email"
+
+#: lib/phoenix_demo_web/live/user/orders/order/order_live.ex:80
+#: lib/phoenix_demo_web/live/user/user_orders_live.ex:31
+#, elixir-autogen, elixir-format
+msgid "Total"
+msgstr "Total"
+
+#: lib/phoenix_demo_web/live/user_registration_live.ex:38
+#, elixir-autogen, elixir-format
+msgid "Ups, algo salió mal! Por favor, revisa los errores abajo."
+msgstr "Oops, something went wrong! Please check the errors below."
+
+#: lib/phoenix_demo_web/live/user/orders/order_item.ex:58
+#, elixir-autogen, elixir-format
+msgid "Ver"
+msgstr "View"
+
+#: lib/phoenix_demo_web/live/user_login_live.ex:20
+#, elixir-autogen, elixir-format
+msgid "ahora."
+msgstr "now."
+
+#: lib/phoenix_demo_web/live/user_registration_live.ex:24
+#, elixir-autogen, elixir-format
+msgid "en tu cuenta ahora."
+msgstr "to your account now."
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:12
+#: lib/phoenix_demo_web/live/user_login_live.ex:47
+#, elixir-autogen, elixir-format
+msgid "¿Olvidaste tu contraseña?"
+msgstr "Forgot your password?"
+
+#: lib/phoenix_demo_web/live/user_registration_live.ex:16
+#, elixir-autogen, elixir-format
+msgid "¿Ya tienes una cuenta?"
+msgstr "Already have an account?"
+
+#: lib/phoenix_demo_web/controllers/user_session_controller.ex:19
+#, elixir-autogen, elixir-format
+msgid "Bienvenido de nuevo!"
+msgstr "Welcome back!"
+
+#: lib/phoenix_demo_web/controllers/user_session_controller.ex:40
+#, elixir-autogen, elixir-format
+msgid "Cerrado sesión correctamente."
+msgstr "Successfully logged out."
+
+#: lib/phoenix_demo_web/controllers/user_session_controller.ex:15
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Contraseña actualizada correctamente!"
+msgstr "Password successfully updated!"
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:86
+#, elixir-autogen, elixir-format
+msgid "Contraseña restablecida correctamente."
+msgstr "Password successfully reset."
+
+#: lib/phoenix_demo_web/controllers/user_session_controller.ex:9
+#, elixir-autogen, elixir-format
+msgid "Cuenta creada correctamente!"
+msgstr "Account successfully created!"
+
+#: lib/phoenix_demo_web/user_auth.ex:163
+#: lib/phoenix_demo_web/user_auth.ex:213
+#, elixir-autogen, elixir-format
+msgid "Debes iniciar sesión para acceder a esta página."
+msgstr "You must log in to access this page."
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:109
+#, elixir-autogen, elixir-format
+msgid "El enlace de cambio de email es inválido o ha expirado."
+msgstr "Email change link is invalid or it has expired."
+
+#: lib/phoenix_demo_web/live/user_confirmation_live.ex:56
+#, elixir-autogen, elixir-format
+msgid "El enlace de confirmación del usuario es inválido o ha expirado."
+msgstr "User confirmation link is invalid or it has expired."
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:106
+#, elixir-autogen, elixir-format
+msgid "El enlace de restablecimiento de contraseña es inválido o ha expirado."
+msgstr "Password reset link is invalid or it has expired."
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:103
+#, elixir-autogen, elixir-format
+msgid "Email cambiado correctamente."
+msgstr "Email changed successfully."
+
+#: lib/phoenix_demo_web/controllers/user_session_controller.ex:32
+#, elixir-autogen, elixir-format
+msgid "Email o contraseña incorrectos"
+msgstr "Invalid email or password"
+
+#: lib/phoenix_demo_web/live/user_confirmation_instructions_live.ex:45
+#, elixir-autogen, elixir-format
+msgid "Si tu email está en nuestro sistema y no ha sido confirmado aún, recibirás un email con instrucciones."
+msgstr "If your email is in our system and it hasn't been confirmed yet, you will receive an email with instructions."
+
+#: lib/phoenix_demo_web/live/user_forgot_password_live.ex:63
+#, elixir-autogen, elixir-format
+msgid "Si tu email está en nuestro sistema, recibirás instrucciones para restablecer tu contraseña."
+msgstr "If your email is in our system, you will receive password reset instructions."
+
+#: lib/phoenix_demo_web/live/user_settings_live.ex:158
+#, elixir-autogen, elixir-format
+msgid "Un enlace para confirmar tu cambio de email ha sido enviado al nuevo correo."
+msgstr "A link to confirm your email change has been sent to the new address."
+
+#: lib/phoenix_demo_web/live/user_confirmation_live.ex:39
+#, elixir-autogen, elixir-format
+msgid "Usuario confirmado correctamente."
+msgstr "User confirmed successfully."
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:12
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:46
+#, elixir-autogen, elixir-format
+msgid "Restablecer contraseña"
+msgstr "Restablecer contraseña"
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:43
+#, elixir-autogen, elixir-format
+msgid "Restableciendo..."
+msgstr "Resetting..."
+
+#: lib/phoenix_demo_web/live/user_reset_password_live.ex:22
+#, elixir-autogen, elixir-format, fuzzy
+msgid "¡Ups, algo salió mal! Por favor, revisa los errores debajo."
+msgstr "Oops, something went wrong! Please check the errors below."
+
+#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:38
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Registrarte"
+msgstr "Sign up"
+
+#: lib/phoenix_demo_web/live/checkout/checkout_live.ex:24
+#, elixir-autogen, elixir-format
+msgid "Si lo deseas, puedes:"
+msgstr "If you wish, you can:"

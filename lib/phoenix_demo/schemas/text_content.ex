@@ -5,7 +5,8 @@ defmodule PhoenixDemo.Schemas.TextContent do
 
   schema "text_contents" do
     field :original_text, :string
-    has_many :translations, PhoenixDemo.Schemas.Translations, on_delete: :delete_all
+    has_many :translations, PhoenixDemo.Schemas.Translations
+    has_one :product, PhoenixDemo.Schemas.Product
 
     timestamps()
   end

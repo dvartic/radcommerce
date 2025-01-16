@@ -112,7 +112,7 @@ if config_env() == :prod do
   #
   # For this example you need include a HTTP client required by Swoosh API client.
   # Swoosh supports Hackney and Finch out of the box:
-  #
+  # w
   #     config :swoosh, :api_client, Swoosh.ApiClient.Hackney
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
@@ -122,8 +122,26 @@ end
 if config_env() == :prod do
   config :stripity_stripe, api_key: System.get_env("STRIPE_API_KEY")
   config :phoenix_demo, stripe_public: System.get_env("PUBLIC_STRIPE_KEY")
+  config :phoenix_demo, stripe_webhook_secret: System.get_env("STRIPE_WEBHOOK_SECRET")
 else
   source!([".env", System.get_env()])
   config :stripity_stripe, api_key: env!("STRIPE_API_KEY", :string)
   config :phoenix_demo, stripe_public: env!("PUBLIC_STRIPE_KEY", :string)
+  config :phoenix_demo, stripe_webhook_secret: env!("STRIPE_WEBHOOK_SECRET", :string)
+end
+
+# Email config
+if config_env() == :prod do
+  config :phoenix_demo, PhoenixDemo.Mailer,
+    adapter: Swoosh.Adapters.Brevo,
+    api_key: System.get_env("BREVO_API_KEY")
+
+  config :swoosh, :api_client, Swoosh.ApiClient.Req
+else
+  config :phoenix_demo, PhoenixDemo.Mailer, adapter: Swoosh.Adapters.Local
+  # config :phoenix_demo, PhoenixDemo.Mailer,
+  #   adapter: Swoosh.Adapters.Brevo,
+  #   api_key: "test"
+
+  # config :swoosh, :api_client, Swoosh.ApiClient.Req
 end
