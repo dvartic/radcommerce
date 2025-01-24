@@ -3,6 +3,8 @@ defmodule PhoenixDemoWeb.ContactLive do
 
   import Swoosh.Email
 
+  require Logger
+
   @impl true
   def mount(_params, _session, socket) do
     form = to_form(%{"name" => "", "email" => "", "message" => ""})
@@ -98,7 +100,9 @@ defmodule PhoenixDemoWeb.ContactLive do
          )
          |> assign(form: to_form(%{"name" => "", "email" => "", "message" => ""}))}
 
-      {:error, _} ->
+      {:error, error} ->
+        Logger.error("Error sending contact form email, details: #{inspect(error)}")
+
         {:noreply,
          socket
          |> put_flash(
