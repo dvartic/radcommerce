@@ -167,8 +167,15 @@ defmodule PhoenixDemoWeb.HomeLive do
               <div class="prose">
                 <ul>
                   <li>
+                    <.fast_link
+                      id="0b0a4de5-e2a1-4440-a042-a0ee53fb5b6e"
+                      navigate={~p"/contact"}
+                      class="link"
+                    >
+                      {gettext("Contacta con nosotros")}
+                    </.fast_link>
                     {gettext(
-                      "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
+                      " si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
                     )}
                   </li>
                   <li>

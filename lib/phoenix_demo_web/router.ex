@@ -54,6 +54,9 @@ defmodule PhoenixDemoWeb.Router do
       # About
       live "/about", AboutLive, :index
 
+      # Contact
+      live "/contact", ContactLive, :index
+
       # Checkout
       live "/checkout/:id", Checkout.CheckoutLive, :index
 

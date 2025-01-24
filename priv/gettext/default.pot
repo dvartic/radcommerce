@@ -16,7 +16,7 @@ msgstr ""
 msgid "A toda Europa"
 msgstr ""
 
-#: lib/phoenix_demo_web/components/core_components.ex:506
+#: lib/phoenix_demo_web/components/core_components.ex:507
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
@@ -65,11 +65,6 @@ msgstr ""
 #: lib/phoenix_demo_web/live/home_live.ex:67
 #, elixir-autogen, elixir-format
 msgid ">1.2 mil artículos vendidos"
-msgstr ""
-
-#: lib/phoenix_demo_web/live/home_live.ex:170
-#, elixir-autogen, elixir-format
-msgid "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
 msgstr ""
 
 #: lib/phoenix_demo_web/live/home_live.ex:117
@@ -167,7 +162,7 @@ msgstr ""
 msgid "Soporte"
 msgstr ""
 
-#: lib/phoenix_demo_web/live/home_live.ex:175
+#: lib/phoenix_demo_web/live/home_live.ex:182
 #, elixir-autogen, elixir-format
 msgid "Trabajaremos con diligencia para resolver cualquier problema."
 msgstr ""
@@ -187,7 +182,7 @@ msgstr ""
 msgid "⋆⋆⋆⋆⋆"
 msgstr ""
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:142
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:149
 #, elixir-autogen, elixir-format
 msgid "2024 ACG Micro. Todos los derechos reservados."
 msgstr ""
@@ -197,12 +192,12 @@ msgstr ""
 msgid "Acerca de"
 msgstr ""
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:157
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:164
 #, elixir-autogen, elixir-format
 msgid "Elixir"
 msgstr ""
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:145
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:152
 #, elixir-autogen, elixir-format
 msgid "Escrito en"
 msgstr ""
@@ -379,6 +374,7 @@ msgstr ""
 msgid "Contraseña actual"
 msgstr ""
 
+#: lib/phoenix_demo_web/live/contact_live.ex:46
 #: lib/phoenix_demo_web/live/user_forgot_password_live.ex:22
 #: lib/phoenix_demo_web/live/user_login_live.ex:28
 #: lib/phoenix_demo_web/live/user_registration_live.ex:44
@@ -728,4 +724,55 @@ msgstr ""
 #: lib/phoenix_demo_web/live/checkout/checkout_live.ex:24
 #, elixir-autogen, elixir-format
 msgid "Si lo deseas, puedes:"
+msgstr ""
+
+#: lib/phoenix_demo_web/live/home_live.ex:177
+#, elixir-autogen, elixir-format
+msgid " si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
+msgstr ""
+
+#: lib/phoenix_demo_web/live/home_live.ex:175
+#, elixir-autogen, elixir-format
+msgid "Contacta con nosotros"
+msgstr ""
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:138
+#: lib/phoenix_demo_web/live/contact_live.ex:19
+#, elixir-autogen, elixir-format
+msgid "Contacto"
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:59
+#, elixir-autogen, elixir-format
+msgid "Enviar"
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:106
+#, elixir-autogen, elixir-format
+msgid "Error al enviar el mensaje. Intenta más tarde o contacta directamente via email."
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:53
+#, elixir-autogen, elixir-format
+msgid "Escribe tu mensaje aquí..."
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:97
+#, elixir-autogen, elixir-format
+msgid "Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto."
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:22
+#, elixir-autogen, elixir-format
+msgid "No dudes en ponerte en contacto con nosotros si tienes alguna duda. Contestamos en menos de 24 horas."
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:39
+#, elixir-autogen, elixir-format
+msgid "Nombre"
+msgstr ""
+
+#: lib/phoenix_demo_web/live/contact_live.ex:65
+#, elixir-autogen, elixir-format
+msgid "También puedes contactar con nosotros a través de correo electrónico:"
 msgstr ""

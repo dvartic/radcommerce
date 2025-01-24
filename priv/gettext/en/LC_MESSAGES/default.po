@@ -16,7 +16,7 @@ msgstr ""
 msgid "A toda Europa"
 msgstr "All across Europe"
 
-#: lib/phoenix_demo_web/components/core_components.ex:506
+#: lib/phoenix_demo_web/components/core_components.ex:507
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr "Actions"
@@ -66,11 +66,6 @@ msgstr "100% positive feedback"
 #, elixir-autogen, elixir-format
 msgid ">1.2 mil artículos vendidos"
 msgstr ">1.2 thousand items sold"
-
-#: lib/phoenix_demo_web/live/home_live.ex:170
-#, elixir-autogen, elixir-format
-msgid "Contacta con nosotros si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
-msgstr "Contact us if you have any questions or issues with your order. We'll respond as soon as possible within 24 hours."
 
 #: lib/phoenix_demo_web/live/home_live.ex:117
 #, elixir-autogen, elixir-format
@@ -167,7 +162,7 @@ msgstr "Shipping policy"
 msgid "Soporte"
 msgstr "Support"
 
-#: lib/phoenix_demo_web/live/home_live.ex:175
+#: lib/phoenix_demo_web/live/home_live.ex:182
 #, elixir-autogen, elixir-format
 msgid "Trabajaremos con diligencia para resolver cualquier problema."
 msgstr "We will work diligently to resolve any issues."
@@ -187,7 +182,7 @@ msgstr "in Apple."
 msgid "⋆⋆⋆⋆⋆"
 msgstr "⋆⋆⋆⋆⋆"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:142
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:149
 #, elixir-autogen, elixir-format
 msgid "2024 ACG Micro. Todos los derechos reservados."
 msgstr "2024 ACG Micro. All rights reserved."
@@ -197,12 +192,12 @@ msgstr "2024 ACG Micro. All rights reserved."
 msgid "Acerca de"
 msgstr "About"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:157
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:164
 #, elixir-autogen, elixir-format
 msgid "Elixir"
 msgstr "Elixir"
 
-#: lib/phoenix_demo_web/components/layouts/app.html.heex:145
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:152
 #, elixir-autogen, elixir-format
 msgid "Escrito en"
 msgstr "Written in"
@@ -379,6 +374,7 @@ msgstr "Password"
 msgid "Contraseña actual"
 msgstr "Current password"
 
+#: lib/phoenix_demo_web/live/contact_live.ex:46
 #: lib/phoenix_demo_web/live/user_forgot_password_live.ex:22
 #: lib/phoenix_demo_web/live/user_login_live.ex:28
 #: lib/phoenix_demo_web/live/user_registration_live.ex:44
@@ -729,3 +725,54 @@ msgstr "Sign up"
 #, elixir-autogen, elixir-format
 msgid "Si lo deseas, puedes:"
 msgstr "If you wish, you can:"
+
+#: lib/phoenix_demo_web/live/home_live.ex:177
+#, elixir-autogen, elixir-format
+msgid " si tienes alguna duda o problema con el pedido. Responderemos lo antes posible en menos de 24hrs."
+msgstr " if you have any questions or issues with your order. We will respond as soon as possible within 24 hours."
+
+#: lib/phoenix_demo_web/live/home_live.ex:175
+#, elixir-autogen, elixir-format
+msgid "Contacta con nosotros"
+msgstr "Contact us"
+
+#: lib/phoenix_demo_web/components/layouts/app.html.heex:138
+#: lib/phoenix_demo_web/live/contact_live.ex:19
+#, elixir-autogen, elixir-format
+msgid "Contacto"
+msgstr "Contact"
+
+#: lib/phoenix_demo_web/live/contact_live.ex:59
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Enviar"
+msgstr "Send"
+
+#: lib/phoenix_demo_web/live/contact_live.ex:106
+#, elixir-autogen, elixir-format
+msgid "Error al enviar el mensaje. Intenta más tarde o contacta directamente via email."
+msgstr "Error sending message. Please try again later or contact us directly via email."
+
+#: lib/phoenix_demo_web/live/contact_live.ex:53
+#, elixir-autogen, elixir-format
+msgid "Escribe tu mensaje aquí..."
+msgstr "Write your message here..."
+
+#: lib/phoenix_demo_web/live/contact_live.ex:97
+#, elixir-autogen, elixir-format
+msgid "Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto."
+msgstr "Message sent successfully. We will contact you soon."
+
+#: lib/phoenix_demo_web/live/contact_live.ex:22
+#, elixir-autogen, elixir-format
+msgid "No dudes en ponerte en contacto con nosotros si tienes alguna duda. Contestamos en menos de 24 horas."
+msgstr "Don't hesitate to contact us if you have any questions. We respond within 24 hours."
+
+#: lib/phoenix_demo_web/live/contact_live.ex:39
+#, elixir-autogen, elixir-format
+msgid "Nombre"
+msgstr "Name"
+
+#: lib/phoenix_demo_web/live/contact_live.ex:65
+#, elixir-autogen, elixir-format
+msgid "También puedes contactar con nosotros a través de correo electrónico:"
+msgstr "You can also contact us via email:"
