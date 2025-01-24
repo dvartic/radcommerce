@@ -1,6 +1,8 @@
 defmodule PhoenixDemoWeb.Api.WebhookController do
   use PhoenixDemoWeb, :controller
 
+  require Logger
+
   alias PhoenixDemo.Orders
 
   def create_order(conn, _params) do
@@ -80,6 +82,8 @@ defmodule PhoenixDemoWeb.Api.WebhookController do
         |> json(%{received: true})
 
       {:error, error} ->
+        Logger.error("Error storing order using webhook, details: #{inspect(error)}")
+
         conn
         |> put_status(:bad_request)
         |> json(%{error: error})

@@ -3,6 +3,8 @@ defmodule PhoenixDemoWeb.ContactLive do
 
   import Swoosh.Email
 
+  alias PhoenixDemo.Mailer
+
   require Logger
 
   @impl true
@@ -79,7 +81,7 @@ defmodule PhoenixDemoWeb.ContactLive do
       ) do
     swoosh_email =
       new()
-      |> to({"ACG Micro", "info@acgmicro.com"})
+      |> to("info@acgmicro.com")
       |> from({"ACG Micro Backend - Contact Form", "noreply@acgmicro.com"})
       |> subject("Contact Form ACG Micro")
       |> text_body("""
@@ -90,7 +92,7 @@ defmodule PhoenixDemoWeb.ContactLive do
       #{message}
       """)
 
-    case PhoenixDemo.Mailer.deliver(swoosh_email) do
+    case Mailer.deliver(swoosh_email) do
       {:ok, _} ->
         {:noreply,
          socket
