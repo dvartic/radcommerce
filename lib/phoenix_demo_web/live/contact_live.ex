@@ -59,7 +59,11 @@ defmodule PhoenixDemoWeb.ContactLive do
           required
         />
         <:actions>
-          <button class="btn btn-primary">
+          <button
+            id="3b989f58-f73a-4dec-b16b-9668f354a809"
+            class="btn btn-primary"
+            phx-hook="FormSubmitOnMousedown"
+          >
             {gettext("Enviar")}
           </button>
         </:actions>
