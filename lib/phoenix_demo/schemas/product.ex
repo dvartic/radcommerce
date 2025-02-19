@@ -22,7 +22,7 @@ defmodule PhoenixDemo.Schemas.Product do
 
   def changeset(product, attrs \\ %{}) do
     product
-    |> cast(attrs, [:name_id, :price, :description_id, :images, :is_active])
+    |> cast(attrs, [:name_id, :price, :description_id, :properties_id, :images, :is_active])
     |> validate_required([:name_id, :price, :description_id])
     |> validate_length(:images, max: 20)
     |> foreign_key_constraint(:name_id)
